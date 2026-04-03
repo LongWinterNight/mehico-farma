@@ -413,6 +413,7 @@ button {
         right: 0;
         bottom: 0;
         background: var(--bg-primary);
+        display: flex;
         flex-direction: column;
         padding: var(--space-6);
         transform: translateX(100%);
@@ -426,19 +427,25 @@ button {
     }
 
     .header__nav-list {
+        display: flex;
         flex-direction: column;
         gap: var(--space-2);
     }
 
     .header__nav-link {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
         padding: var(--space-4);
-        font-size: 1rem;
+        min-height: 48px;
+        font-size: 1.125rem;
         border-radius: var(--radius-lg);
     }
 
     .header__nav-icon {
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        flex-shrink: 0;
     }
 }
 
@@ -4737,6 +4744,19 @@ button {
         --header-height: 3.5rem;
     }
 
+    /* Touch-friendly: all interactive elements min 48px */
+    button, 
+    input, 
+    select, 
+    textarea,
+    .header__nav-link,
+    .quick-action-btn,
+    .goal-item,
+    .kb-card,
+    .metric {
+        min-height: 48px;
+    }
+
     /* Containers */
     .hero__container,
     .knowledge-base__container,
@@ -4750,15 +4770,22 @@ button {
 
     /* Hero */
     .hero {
-        padding: var(--space-8) 0;
+        padding: var(--space-6) 0;
     }
 
     .hero__title {
         font-size: 1.5rem;
+        line-height: 1.3;
     }
 
     .hero__subtitle {
         font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    .hero__badge {
+        font-size: 0.688rem;
+        padding: var(--space-1) var(--space-3);
     }
 
     .hero__metrics {
@@ -4774,6 +4801,13 @@ button {
 
     .hero__tag {
         justify-content: center;
+        padding: var(--space-3) var(--space-4);
+        min-height: 44px;
+    }
+
+    /* Metric Cards */
+    .metric {
+        padding: var(--space-4);
     }
 
     .metric__number {
@@ -4785,22 +4819,65 @@ button {
         height: 2.5rem;
     }
 
+    .metric__label {
+        font-size: 0.75rem;
+    }
+
+    .metric__status {
+        font-size: 0.688rem;
+        padding: var(--space-1) var(--space-2);
+    }
+
     /* Knowledge Base */
     .knowledge-base {
-        padding: var(--space-8) 0;
+        padding: var(--space-6) 0;
     }
 
     .knowledge-base__grid {
         grid-template-columns: 1fr;
+        gap: var(--space-4);
     }
 
     .knowledge-base__title {
         font-size: 1.25rem;
     }
 
+    .knowledge-base__subtitle {
+        font-size: 0.875rem;
+    }
+
+    .kb-card {
+        padding: 0;
+    }
+
+    .kb-card__header {
+        padding: var(--space-4);
+    }
+
+    .kb-card__body {
+        padding: var(--space-4);
+    }
+
+    .kb-card__footer {
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .kb-card__icon {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .kb-card__title {
+        font-size: 1rem;
+    }
+
+    .kb-card__description {
+        font-size: 0.813rem;
+    }
+
     /* Unit Economics */
     .unit-economics {
-        padding: var(--space-6) 0;
+        padding: var(--space-4) 0;
     }
 
     .unit-economics__title {
@@ -4808,11 +4885,132 @@ button {
     }
 
     .unit-economics__subtitle {
+        font-size: 0.813rem;
+    }
+
+    .unit-economics__header {
+        gap: var(--space-4);
+        margin-bottom: var(--space-6);
+    }
+
+    .unit-economics__actions {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+
+    .scenario-selector {
+        width: 100%;
+    }
+
+    .scenario-selector__select {
+        width: 100%;
+        min-height: 48px;
+        font-size: 1rem;
+    }
+
+    .quick-presets {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: var(--space-2);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .quick-presets__btn {
+        white-space: nowrap;
+        min-height: 44px;
+        padding: var(--space-2) var(--space-4);
         font-size: 0.875rem;
+    }
+
+    .quick-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .quick-actions__btn {
+        width: 100%;
+        min-height: 44px;
+        font-size: 0.875rem;
+    }
+
+    .export-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .export-actions__btn {
+        width: 48px;
+        height: 48px;
+    }
+
+    /* Input Panel */
+    .input-panel__content {
+        padding: var(--space-4);
+    }
+
+    .input-panel__title {
+        font-size: 1rem;
+        margin-bottom: var(--space-4);
+    }
+
+    .input-group {
+        margin-bottom: var(--space-4);
+    }
+
+    .input-group__label {
+        font-size: 0.813rem;
+        margin-bottom: var(--space-2);
+    }
+
+    .input-group__field {
+        min-height: 48px;
+    }
+
+    .input-group__input {
+        font-size: 1rem;
+        min-height: 48px;
+        padding: var(--space-3) var(--space-4);
+    }
+
+    .input-group__stepper-btn {
+        width: 48px;
+        height: 24px;
+        font-size: 1rem;
+    }
+
+    .input-group__presets {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2);
+        margin-top: var(--space-2);
+    }
+
+    .input-group__preset {
+        min-height: 40px;
+        padding: var(--space-2) var(--space-3);
+        font-size: 0.813rem;
+    }
+
+    .input-panel__reset {
+        width: 100%;
+        min-height: 48px;
+        font-size: 0.875rem;
+        margin-top: var(--space-4);
+    }
+
+    /* Metrics Panel */
+    .metrics-panel__title {
+        font-size: 1rem;
+        margin-bottom: var(--space-4);
     }
 
     .metrics-panel__grid {
         grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .metric-card {
+        padding: var(--space-4);
     }
 
     .metric-card--lg {
@@ -4823,21 +5021,17 @@ button {
         font-size: 1.25rem;
     }
 
-    .input-group__stepper {
-        right: 0;
+    .metric-card__icon {
+        width: 2.5rem;
+        height: 2.5rem;
     }
 
-    .input-group__input {
-        padding-right: var(--space-8);
+    .metric-card__label {
+        font-size: 0.688rem;
     }
 
-    .input-panel__presets {
-        flex-wrap: wrap;
-    }
-
-    .input-panel__preset-btn {
-        flex: 1;
-        min-width: 60px;
+    .metric-card__formula {
+        font-size: 0.625rem;
     }
 
     /* Quick Actions (home) */
@@ -4848,10 +5042,11 @@ button {
 
     .quick-action-btn {
         padding: var(--space-4);
+        min-height: 80px;
     }
 
     .quick-action-btn__icon {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
 
     .quick-action-btn__label {
@@ -4859,18 +5054,122 @@ button {
     }
 
     /* Notifications */
+    .notifications__title {
+        font-size: 1rem;
+    }
+
     .notification-item {
         flex-direction: column;
         gap: var(--space-2);
+        padding: var(--space-3) var(--space-4);
     }
 
     .notification-item__dot {
         display: none;
     }
 
+    .notification-item__text {
+        font-size: 0.813rem;
+    }
+
+    .notification-item__time {
+        font-size: 0.688rem;
+    }
+
     /* Weekly Goals */
+    .weekly-goals__title {
+        font-size: 1rem;
+    }
+
     .goal-item {
+        padding: var(--space-3) var(--space-4);
+        min-height: 48px;
+    }
+
+    .goal-item__checkbox {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    .goal-item__text {
+        font-size: 0.875rem;
+    }
+
+    /* Funnel Params */
+    .funnel-params {
+        padding: var(--space-4);
+    }
+
+    .funnel-params__title {
+        font-size: 1rem;
+    }
+
+    .funnel-params__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
+    .funnel-param-card {
+        padding: var(--space-4);
+    }
+
+    .funnel-param-card__slider {
+        height: 8px;
+    }
+
+    .funnel-param-card__value {
+        font-size: 1rem;
+        min-width: 3.5rem;
+    }
+
+    .funnel-param-card__presets {
+        flex-wrap: wrap;
+    }
+
+    .funnel-param-card__preset-btn {
+        min-height: 36px;
         padding: var(--space-2) var(--space-3);
+        font-size: 0.75rem;
+    }
+
+    /* Funnel Pipeline */
+    .funnel-pipeline-section {
+        padding: var(--space-4);
+    }
+
+    .funnel-pipeline-section__title {
+        font-size: 1rem;
+    }
+
+    .funnel-pipeline__nodes {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .funnel-node {
+        min-height: auto;
+    }
+
+    .funnel-node__value {
+        font-size: 1.5rem;
+    }
+
+    /* Funnel Summary */
+    .funnel-summary {
+        padding: var(--space-4);
+    }
+
+    .funnel-summary__title {
+        font-size: 1rem;
+    }
+
+    .funnel-summary__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .funnel-summary-card {
+        padding: var(--space-3);
     }
 
     /* Modal */
@@ -4880,10 +5179,20 @@ button {
 
     .modal {
         max-height: 90vh;
+        border-radius: var(--radius-xl);
     }
 
     .modal__header {
         padding: var(--space-4);
+    }
+
+    .modal__title {
+        font-size: 1rem;
+    }
+
+    .modal__close {
+        width: 48px;
+        height: 48px;
     }
 
     .modal__body {
@@ -4897,14 +5206,24 @@ button {
 
     .command-palette {
         margin: 0 var(--space-2);
+        border-radius: var(--radius-lg);
     }
 
     .command-palette__input-wrapper {
         padding: var(--space-3) var(--space-4);
     }
 
+    .command-palette__input {
+        font-size: 1rem;
+    }
+
     .command-palette__kbd {
         display: none;
+    }
+
+    .command-palette__item {
+        min-height: 48px;
+        padding: var(--space-3) var(--space-4);
     }
 
     /* Footer */
