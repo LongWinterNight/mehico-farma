@@ -10,7 +10,8 @@
       "Bash(git commit *)",
       "Bash(git remote *)",
       "Bash(git push *)",
-      "Bash(npx *)"
+      "Bash(npx *)",
+      "Bash(taskkill *)"
     ]
   },
   "$version": 3
