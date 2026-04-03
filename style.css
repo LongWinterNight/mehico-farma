@@ -1046,6 +1046,53 @@ button {
     color: var(--text-primary);
 }
 
+/* Quick Actions (Unit Economics page) */
+.unit-economics .quick-actions {
+    display: flex;
+    gap: var(--space-2);
+}
+
+.unit-economics .quick-actions__btn {
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+.unit-economics .quick-actions__btn--optimistic {
+    background: rgba(34, 197, 94, 0.1);
+    border-color: var(--green-400);
+    color: var(--green-400);
+}
+
+.unit-economics .quick-actions__btn--optimistic:hover {
+    background: rgba(34, 197, 94, 0.2);
+}
+
+.unit-economics .quick-actions__btn--realistic {
+    background: rgba(6, 182, 212, 0.1);
+    border-color: var(--cyan-400);
+    color: var(--cyan-400);
+}
+
+.unit-economics .quick-actions__btn--realistic:hover {
+    background: rgba(6, 182, 212, 0.2);
+}
+
+.unit-economics .quick-actions__btn--pessimistic {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: var(--red-400);
+    color: var(--red-400);
+}
+
+.unit-economics .quick-actions__btn--pessimistic:hover {
+    background: rgba(239, 68, 68, 0.2);
+}
+
 /* Layout */
 .unit-economics__layout {
     display: grid;
