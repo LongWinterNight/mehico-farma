@@ -374,78 +374,15 @@ button {
     50% { opacity: 0.5; transform: scale(1.2); }
 }
 
-/* Mobile Menu Toggle */
+/* Mobile Menu Toggle - hidden, using bottom nav instead */
 .header__menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 4px;
-    padding: var(--space-2);
-    cursor: pointer;
-    z-index: var(--z-fixed);
+    display: none !important;
 }
 
-.header__menu-toggle span {
-    width: 24px;
-    height: 2px;
-    background: var(--text-primary);
-    border-radius: var(--radius-full);
-    transition: all var(--transition-fast);
-}
-
-.header__menu-toggle--active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.header__menu-toggle--active span:nth-child(2) {
-    opacity: 0;
-}
-
-.header__menu-toggle--active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
-
-/* Mobile Navigation Overlay */
+/* Mobile Navigation - hidden, using bottom nav instead */
 @media (max-width: 1024px) {
     .header__nav {
-        position: fixed;
-        top: var(--header-height);
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--bg-primary);
-        display: flex;
-        flex-direction: column;
-        padding: var(--space-6);
-        transform: translateX(100%);
-        transition: transform var(--transition-base);
-        z-index: calc(var(--z-fixed) - 1);
-        overflow-y: auto;
-    }
-
-    .header__nav--open {
-        transform: translateX(0);
-    }
-
-    .header__nav-list {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-    }
-
-    .header__nav-link {
-        display: flex;
-        align-items: center;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        min-height: 48px;
-        font-size: 1.125rem;
-        border-radius: var(--radius-lg);
-    }
-
-    .header__nav-icon {
-        width: 1.5rem;
-        height: 1.5rem;
-        flex-shrink: 0;
+        display: none;
     }
 }
 
@@ -1314,27 +1251,7 @@ button {
 }
 
 .input-group__info {
-    width: 1rem;
-    height: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--slate-700);
-    border-radius: var(--radius-full);
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: var(--text-tertiary);
-    cursor: help;
-    border: none;
-    padding: 0;
-    position: relative;
-    transition: all var(--transition-fast);
-    flex-shrink: 0;
-}
-
-.input-group__info:hover {
-    background: var(--cyan-500);
-    color: var(--slate-950);
+    /* Legacy class - now uses .info-btn styles from funnels.css */
 }
 
 .input-group__hint {
@@ -1342,58 +1259,6 @@ button {
     color: var(--text-muted);
     display: block;
     margin-top: var(--space-1);
-}
-
-.input-group__info::before {
-    content: attr(title);
-    position: absolute;
-    bottom: calc(100% + var(--space-2));
-    left: 50%;
-    transform: translateX(-50%) scale(0.95);
-    background: var(--slate-800);
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-lg);
-    padding: var(--space-2) var(--space-3);
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    white-space: normal;
-    max-width: 280px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-fast);
-    z-index: var(--z-tooltip);
-    box-shadow: var(--shadow-xl);
-    pointer-events: none;
-}
-
-.input-group__info::after {
-    content: '';
-    position: absolute;
-    bottom: calc(100% - 4px);
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    width: 8px;
-    height: 8px;
-    background: var(--slate-800);
-    border-right: 1px solid var(--border-primary);
-    border-bottom: 1px solid var(--border-primary);
-    opacity: 0;
-    visibility: hidden;
-    transition: all var(--transition-fast);
-}
-
-.input-group__info:hover::before,
-.input-group__info:hover::after,
-.input-group__info:focus::before,
-.input-group__info:focus::after {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) scale(1);
-}
-
-.input-group__info:hover::after {
-    transform: translateX(-50%) rotate(45deg) scale(1);
 }
 
 .input-group__row {
@@ -3770,7 +3635,6 @@ button {
         font-size: 0.75rem;
     }
 }
-}
 
 .funnel-controls {
     background: var(--bg-card);
@@ -4767,10 +4631,6 @@ button {
         display: none;
     }
 
-    .header__menu-toggle {
-        display: flex;
-    }
-
     .hero__metrics {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -4833,74 +4693,42 @@ button {
     }
 }
 
-/* Mobile */
-@media (max-width: 640px) {
-    :root {
-        --header-height: 3.5rem;
+/* ==========================================================================
+   MOBILE & TABLET REDESIGN - Compact, efficient layout
+   ========================================================================== */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    /* Header - hide nav, show only brand + status */
+    .header__nav {
+        display: none;
     }
 
-    /* Touch-friendly: all interactive elements min 48px */
-    button, 
-    input, 
-    select, 
-    textarea,
-    .header__nav-link,
-    .quick-action-btn,
-    .goal-item,
-    .kb-card,
-    .metric {
-        min-height: 48px;
+    .header__status {
+        display: none;
     }
 
-    /* Containers */
-    .hero__container,
-    .knowledge-base__container,
-    .unit-economics__container,
-    .footer__container,
-    .quick-actions__container,
-    .notifications__container,
-    .weekly-goals__container {
-        padding: 0 var(--space-4);
-    }
-
-    /* Hero */
+    /* Compact hero section */
     .hero {
-        padding: var(--space-6) 0;
+        padding: var(--space-8) 0 var(--space-6);
     }
 
     .hero__title {
         font-size: 1.5rem;
-        line-height: 1.3;
+        margin-bottom: var(--space-2);
     }
 
     .hero__subtitle {
         font-size: 0.875rem;
-        line-height: 1.5;
-    }
-
-    .hero__badge {
-        font-size: 0.688rem;
-        padding: var(--space-1) var(--space-3);
+        margin-bottom: var(--space-6);
     }
 
     .hero__metrics {
-        grid-template-columns: 1fr;
-        gap: var(--space-4);
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-3);
+        margin-bottom: var(--space-6);
     }
 
-    .hero__tags {
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-2);
-    }
-
-    .hero__tag {
-        justify-content: center;
-        padding: var(--space-3) var(--space-4);
-        min-height: 44px;
-    }
-
-    /* Metric Cards */
     .metric {
         padding: var(--space-4);
     }
@@ -4912,33 +4740,13 @@ button {
     .metric__icon {
         width: 2.5rem;
         height: 2.5rem;
+        margin-bottom: var(--space-3);
     }
 
-    .metric__label {
-        font-size: 0.75rem;
-    }
-
-    .metric__status {
-        font-size: 0.688rem;
-        padding: var(--space-1) var(--space-2);
-    }
-
-    /* Knowledge Base */
-    .knowledge-base {
-        padding: var(--space-6) 0;
-    }
-
+    /* Knowledge base - 2 columns */
     .knowledge-base__grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--space-4);
-    }
-
-    .knowledge-base__title {
-        font-size: 1.25rem;
-    }
-
-    .knowledge-base__subtitle {
-        font-size: 0.875rem;
     }
 
     .kb-card {
@@ -4953,93 +4761,15 @@ button {
         padding: var(--space-4);
     }
 
-    .kb-card__footer {
-        padding: var(--space-3) var(--space-4);
-    }
-
-    .kb-card__icon {
-        width: 2.5rem;
-        height: 2.5rem;
-    }
-
-    .kb-card__title {
-        font-size: 1rem;
-    }
-
-    .kb-card__description {
-        font-size: 0.813rem;
-    }
-
-    /* Unit Economics */
-    .unit-economics {
-        padding: var(--space-4) 0;
-    }
-
-    .unit-economics__title {
-        font-size: 1.25rem;
-    }
-
-    .unit-economics__subtitle {
-        font-size: 0.813rem;
-    }
-
-    .unit-economics__header {
+    /* Unit Economics - single column, compact */
+    .unit-economics__layout {
+        grid-template-columns: 1fr;
         gap: var(--space-4);
-        margin-bottom: var(--space-6);
     }
 
-    .unit-economics__actions {
-        flex-direction: column;
-        gap: var(--space-3);
-    }
-
-    .scenario-selector {
-        width: 100%;
-    }
-
-    .scenario-selector__select {
-        width: 100%;
-        min-height: 48px;
-        font-size: 1rem;
-    }
-
-    .quick-presets {
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: var(--space-2);
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .quick-presets__btn {
-        white-space: nowrap;
-        min-height: 44px;
-        padding: var(--space-2) var(--space-4);
-        font-size: 0.875rem;
-    }
-
-    .quick-actions {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    .quick-actions__btn {
-        width: 100%;
-        min-height: 44px;
-        font-size: 0.875rem;
-    }
-
-    .export-actions {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .export-actions__btn {
-        width: 48px;
-        height: 48px;
-    }
-
-    /* Input Panel */
-    .input-panel__content {
+    .input-panel {
+        position: relative;
+        top: 0;
         padding: var(--space-4);
     }
 
@@ -5049,58 +4779,33 @@ button {
     }
 
     .input-group {
-        margin-bottom: var(--space-4);
+        margin-bottom: var(--space-3);
     }
 
     .input-group__label {
         font-size: 0.813rem;
-        margin-bottom: var(--space-2);
-    }
-
-    .input-group__field {
-        min-height: 48px;
     }
 
     .input-group__input {
-        font-size: 1rem;
-        min-height: 48px;
-        padding: var(--space-3) var(--space-4);
+        font-size: 0.938rem;
+        min-height: 44px;
+        padding: var(--space-2) var(--space-4);
     }
 
     .input-group__stepper-btn {
-        width: 48px;
-        height: 24px;
-        font-size: 1rem;
-    }
-
-    .input-group__presets {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-2);
-        margin-top: var(--space-2);
+        width: 36px;
+        height: 22px;
+        font-size: 0.875rem;
     }
 
     .input-group__preset {
-        min-height: 40px;
-        padding: var(--space-2) var(--space-3);
-        font-size: 0.813rem;
-    }
-
-    .input-panel__reset {
-        width: 100%;
-        min-height: 48px;
-        font-size: 0.875rem;
-        margin-top: var(--space-4);
-    }
-
-    /* Metrics Panel */
-    .metrics-panel__title {
-        font-size: 1rem;
-        margin-bottom: var(--space-4);
+        min-height: 36px;
+        padding: var(--space-1) var(--space-2);
+        font-size: 0.75rem;
     }
 
     .metrics-panel__grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: var(--space-3);
     }
 
@@ -5108,17 +4813,18 @@ button {
         padding: var(--space-4);
     }
 
-    .metric-card--lg {
-        grid-column: span 1;
-    }
-
-    .metric-card__value--large {
+    .metric-card__value {
         font-size: 1.25rem;
     }
 
+    .metric-card__value--decimal {
+        font-size: 1.125rem;
+    }
+
     .metric-card__icon {
-        width: 2.5rem;
-        height: 2.5rem;
+        width: 2.25rem;
+        height: 2.25rem;
+        margin-bottom: var(--space-3);
     }
 
     .metric-card__label {
@@ -5129,212 +4835,454 @@ button {
         font-size: 0.625rem;
     }
 
-    /* Quick Actions (home) */
+    /* Quick actions - 2 columns */
     .quick-actions__grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-3);
     }
 
     .quick-action-btn {
-        padding: var(--space-4);
-        min-height: 80px;
+        padding: var(--space-3);
+        min-height: 64px;
     }
 
     .quick-action-btn__icon {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 
     .quick-action-btn__label {
         font-size: 0.75rem;
     }
 
-    /* Notifications */
-    .notifications__title {
-        font-size: 1rem;
-    }
-
-    .notification-item {
+    /* Unit economics header actions */
+    .unit-economics__header {
         flex-direction: column;
+        gap: var(--space-3);
+        margin-bottom: var(--space-4);
+    }
+
+    .unit-economics__actions {
+        width: 100%;
+        flex-wrap: wrap;
         gap: var(--space-2);
-        padding: var(--space-3) var(--space-4);
     }
 
-    .notification-item__dot {
-        display: none;
-    }
-
-    .notification-item__text {
-        font-size: 0.813rem;
-    }
-
-    .notification-item__time {
-        font-size: 0.688rem;
-    }
-
-    /* Weekly Goals */
-    .weekly-goals__title {
-        font-size: 1rem;
-    }
-
-    .goal-item {
-        padding: var(--space-3) var(--space-4);
-        min-height: 48px;
-    }
-
-    .goal-item__checkbox {
-        width: 1.25rem;
-        height: 1.25rem;
-    }
-
-    .goal-item__text {
+    .scenario-selector__select {
+        min-height: 40px;
         font-size: 0.875rem;
     }
 
-    /* Funnel Params */
-    .funnel-params {
-        padding: var(--space-4);
-    }
-
-    .funnel-params__title {
-        font-size: 1rem;
-    }
-
-    .funnel-params__grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-4);
-    }
-
-    .funnel-param-card {
-        padding: var(--space-4);
-    }
-
-    .funnel-param-card__slider {
-        height: 8px;
-    }
-
-    .funnel-param-card__value {
-        font-size: 1rem;
-        min-width: 3.5rem;
-    }
-
-    .funnel-param-card__presets {
-        flex-wrap: wrap;
-    }
-
-    .funnel-param-card__preset-btn {
+    .quick-presets__btn,
+    .unit-economics .quick-actions__btn {
         min-height: 36px;
-        padding: var(--space-2) var(--space-3);
+        padding: var(--space-1) var(--space-3);
         font-size: 0.75rem;
     }
 
-    /* Funnel Pipeline */
-    .funnel-pipeline-section {
-        padding: var(--space-4);
-    }
-
-    .funnel-pipeline-section__title {
-        font-size: 1rem;
-    }
-
-    .funnel-pipeline__nodes {
-        grid-template-columns: 1fr;
-        gap: var(--space-3);
-    }
-
-    .funnel-node {
-        min-height: auto;
-    }
-
-    .funnel-node__value {
-        font-size: 1.5rem;
-    }
-
-    /* Funnel Summary */
-    .funnel-summary {
-        padding: var(--space-4);
-    }
-
-    .funnel-summary__title {
-        font-size: 1rem;
-    }
-
-    .funnel-summary__grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-3);
-    }
-
-    .funnel-summary-card {
-        padding: var(--space-3);
+    .export-actions__btn {
+        width: 40px;
+        height: 40px;
     }
 
     /* Modal */
-    .modal-overlay {
-        padding: var(--space-2);
-    }
-
     .modal {
-        max-height: 90vh;
-        border-radius: var(--radius-xl);
-    }
-
-    .modal__header {
-        padding: var(--space-4);
-    }
-
-    .modal__title {
-        font-size: 1rem;
-    }
-
-    .modal__close {
-        width: 48px;
-        height: 48px;
-    }
-
-    .modal__body {
-        padding: var(--space-4);
-    }
-
-    /* Command Palette */
-    .command-palette-overlay {
-        padding-top: 10vh;
+        max-width: 95vw;
+        margin: var(--space-4);
     }
 
     .command-palette {
-        margin: 0 var(--space-2);
+        max-width: 95vw;
+        margin: 0 var(--space-4);
+    }
+}
+
+/* Mobile (<=640px) - Compact Design */
+@media (max-width: 640px) {
+    :root {
+        --header-height: 3.5rem;
+    }
+
+    /* Touch-friendly min height */
+    button,
+    input,
+    select,
+    textarea {
+        min-height: 44px;
+    }
+
+    /* Containers - tight padding */
+    .hero__container,
+    .knowledge-base__container,
+    .unit-economics__container,
+    .footer__container,
+    .quick-actions__container,
+    .notifications__container,
+    .weekly-goals__container {
+        padding: 0 var(--space-3);
+    }
+
+    /* Hero - ultra compact */
+    .hero {
+        padding: var(--space-4) 0 var(--space-3);
+    }
+
+    .hero__header {
+        margin-bottom: var(--space-4);
+    }
+
+    .hero__title {
+        font-size: 1.25rem;
+        line-height: 1.2;
+        margin-bottom: var(--space-1);
+    }
+
+    .hero__subtitle {
+        font-size: 0.75rem;
+        line-height: 1.4;
+        margin-bottom: var(--space-3);
+    }
+
+    .hero__badge {
+        font-size: 0.625rem;
+        padding: var(--space-1) var(--space-2);
+        margin-bottom: var(--space-2);
+    }
+
+    /* Metrics - single column, compact */
+    .hero__metrics {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+        margin-bottom: var(--space-4);
+    }
+
+    .metric {
+        padding: var(--space-3);
         border-radius: var(--radius-lg);
     }
 
-    .command-palette__input-wrapper {
-        padding: var(--space-3) var(--space-4);
+    .metric__icon {
+        width: 2rem;
+        height: 2rem;
+        margin-bottom: var(--space-2);
     }
 
-    .command-palette__input {
+    .metric__icon svg {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    .metric__label {
+        font-size: 0.688rem;
+    }
+
+    .metric__number {
+        font-size: 1.5rem;
+    }
+
+    .metric__currency {
         font-size: 1rem;
     }
 
-    .command-palette__kbd {
-        display: none;
+    .metric__percent {
+        font-size: 0.875rem;
     }
 
-    .command-palette__item {
-        min-height: 48px;
-        padding: var(--space-3) var(--space-4);
+    .metric__divider {
+        font-size: 0.75rem;
+    }
+
+    .metric__status {
+        font-size: 0.625rem;
+        padding: 2px var(--space-2);
+    }
+
+    .metric__progress {
+        height: 0.25rem;
+    }
+
+    .metric__budget-bar {
+        height: 0.25rem;
+    }
+
+    .metric__budget-info {
+        font-size: 0.625rem;
+    }
+
+    .metric__sparkline {
+        height: 24px;
+    }
+
+    /* Hero tags - horizontal scroll */
+    .hero__tags {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: var(--space-2);
+        padding: var(--space-2) var(--space-3);
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .hero__tag {
+        flex-shrink: 0;
+        padding: var(--space-1) var(--space-3);
+        font-size: 0.75rem;
+        min-height: 32px;
+    }
+
+    /* Knowledge base - single column */
+    .knowledge-base {
+        padding: var(--space-4) 0;
+    }
+
+    .knowledge-base__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .knowledge-base__title {
+        font-size: 1.125rem;
+    }
+
+    .knowledge-base__subtitle {
+        font-size: 0.75rem;
+    }
+
+    .kb-card__header {
+        padding: var(--space-3);
+    }
+
+    .kb-card__icon {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .kb-card__icon svg {
+        width: 1.125rem;
+        height: 1.125rem;
+    }
+
+    .kb-card__title {
+        font-size: 0.938rem;
+    }
+
+    .kb-card__body {
+        padding: var(--space-3);
+    }
+
+    .kb-card__tag {
+        font-size: 0.688rem;
+        padding: 2px var(--space-2);
+    }
+
+    .kb-card__description {
+        font-size: 0.75rem;
+    }
+
+    .kb-card__footer {
+        padding: var(--space-2) var(--space-3);
+    }
+
+    .kb-card__status {
+        font-size: 0.688rem;
+    }
+
+    /* Quick actions */
+    .quick-actions {
+        padding: var(--space-4) 0;
+    }
+
+    .quick-actions__title {
+        font-size: 1rem;
+        margin-bottom: var(--space-3);
+    }
+
+    .quick-actions__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-2);
+    }
+
+    .quick-action-btn {
+        padding: var(--space-3);
+        min-height: 56px;
+        border-radius: var(--radius-lg);
+    }
+
+    .quick-action-btn__icon {
+        font-size: 1.125rem;
+    }
+
+    .quick-action-btn__label {
+        font-size: 0.688rem;
+    }
+
+    /* Notifications */
+    .notifications {
+        padding: var(--space-4) 0;
+    }
+
+    .notifications__title {
+        font-size: 1rem;
+        margin-bottom: var(--space-3);
+    }
+
+    .notification-item {
+        padding: var(--space-3);
+        gap: var(--space-2);
+    }
+
+    .notification-item__text {
+        font-size: 0.75rem;
+    }
+
+    .notification-item__time {
+        font-size: 0.625rem;
+    }
+
+    /* Weekly goals */
+    .weekly-goals {
+        padding: var(--space-4) 0;
+    }
+
+    .weekly-goals__title {
+        font-size: 1rem;
+        margin-bottom: var(--space-3);
+    }
+
+    .goal-item {
+        padding: var(--space-3);
+        min-height: 40px;
+    }
+
+    .goal-item__text {
+        font-size: 0.813rem;
     }
 
     /* Footer */
     .footer {
-        padding: var(--space-6) 0;
+        padding: var(--space-4) 0;
     }
 
     .footer__text {
+        font-size: 0.688rem;
+    }
+
+    /* Unit Economics - ultra compact on mobile */
+    .unit-economics {
+        padding: var(--space-3) 0;
+    }
+
+    .unit-economics__title {
+        font-size: 1.125rem;
+        margin-bottom: var(--space-1);
+    }
+
+    .unit-economics__subtitle {
+        font-size: 0.688rem;
+        margin-bottom: var(--space-3);
+    }
+
+    .unit-economics__header {
+        gap: var(--space-2);
+        margin-bottom: var(--space-3);
+    }
+
+    .unit-economics__actions {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .scenario-selector {
+        width: 100%;
+    }
+
+    .scenario-selector__select {
+        width: 100%;
+        min-height: 36px;
+        font-size: 0.813rem;
+        padding: var(--space-1) var(--space-2);
+    }
+
+    .quick-presets {
+        width: 100%;
+        display: flex;
+        gap: var(--space-1);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .quick-presets__btn {
+        flex-shrink: 0;
+        min-height: 32px;
+        padding: var(--space-1) var(--space-2);
+        font-size: 0.688rem;
+    }
+
+    .unit-economics .quick-actions {
+        width: 100%;
+        display: flex;
+        gap: var(--space-1);
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .unit-economics .quick-actions__btn {
+        flex-shrink: 0;
+        min-height: 32px;
+        padding: var(--space-1) var(--space-2);
+        font-size: 0.688rem;
+    }
+
+    .export-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .export-actions__btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* Input panel - compact */
+    .input-panel {
+        padding: var(--space-3);
+    }
+
+    .input-panel__title {
+        font-size: 0.938rem;
+        margin-bottom: var(--space-3);
+    }
+
+    .input-group {
+        margin-bottom: var(--space-2);
+    }
+
+    .input-group__label {
+        font-size: 0.75rem;
+        margin-bottom: var(--space-1);
+    }
+
+    .input-group__text {
         font-size: 0.75rem;
     }
 
-    /* Unit Economics - extra mobile improvements */
+    .input-group__hint {
+        font-size: 0.625rem;
+    }
+
     .input-group__row {
         flex-direction: column;
         align-items: stretch;
-        gap: var(--space-2);
+        gap: var(--space-1);
+    }
+
+    .input-group__field {
+        min-height: 40px;
+    }
+
+    .input-group__input {
+        font-size: 0.875rem;
+        min-height: 40px;
+        padding: var(--space-2) var(--space-4);
+        padding-left: var(--space-8);
     }
 
     .input-group__stepper {
@@ -5344,48 +5292,101 @@ button {
     }
 
     .input-group__stepper-btn {
-        width: 40px !important;
-        height: 32px !important;
+        width: 36px !important;
+        height: 28px !important;
+        font-size: 0.875rem;
         border-radius: var(--radius-md) !important;
     }
 
-    .input-group__input {
-        padding-left: var(--space-8) !important;
+    .input-group__presets {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-1);
+        margin-top: var(--space-1);
+    }
+
+    .input-group__preset {
+        min-height: 28px;
+        padding: var(--space-1) var(--space-2);
+        font-size: 0.688rem;
+    }
+
+    .input-panel__reset {
+        width: 100%;
+        min-height: 40px;
+        font-size: 0.813rem;
+        margin-top: var(--space-3);
+    }
+
+    /* Metrics - compact grid */
+    .metrics-panel__title {
+        font-size: 0.938rem;
+        margin-bottom: var(--space-3);
+    }
+
+    .metrics-panel__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-2);
+    }
+
+    .metric-card {
+        padding: var(--space-3);
+    }
+
+    .metric-card--lg {
+        grid-column: span 1;
+    }
+
+    .metric-card__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-bottom: var(--space-2);
+    }
+
+    .metric-card__icon svg {
+        width: 0.875rem;
+        height: 0.875rem;
+    }
+
+    .metric-card__label {
+        font-size: 0.625rem;
     }
 
     .metric-card__value {
-        font-size: 1.75rem;
-    }
-
-    .metric-card__value--decimal {
-        font-size: 1.25rem;
-    }
-
-    .metric-card__currency {
         font-size: 1rem;
     }
 
+    .metric-card__value--decimal {
+        font-size: 0.938rem;
+    }
+
+    .metric-card__currency {
+        font-size: 0.875rem;
+    }
+
     .metric-card__formula {
+        font-size: 0.563rem;
         white-space: normal;
         word-break: break-word;
     }
 
+    /* Alerts */
     .metrics-panel__alerts {
         gap: var(--space-2);
     }
 
     .ue-alert {
-        padding: var(--space-3);
+        padding: var(--space-2);
         flex-direction: column;
-        gap: var(--space-2);
+        gap: var(--space-1);
     }
 
     .ue-alert__title {
-        font-size: 0.813rem;
+        font-size: 0.75rem;
     }
 
     .ue-alert__text {
-        font-size: 0.688rem;
+        font-size: 0.625rem;
     }
 }
 

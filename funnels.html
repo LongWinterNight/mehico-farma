@@ -78,13 +78,6 @@
                 <span class="header__status-dot"></span>
                 <span class="header__status-text">Online</span>
             </div>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="header__menu-toggle" aria-label="Меню" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
@@ -120,7 +113,7 @@
                         <div class="funnel-param-card">
                             <label class="funnel-param-card__label" for="impressions-count">
                                 <span class="funnel-param-card__text">Количество показов</span>
-                                <button type="button" class="funnel-param-card__info" data-tooltip="Общее количество показов креатива. Влияет на масштаб воронки.">ⓘ</button>
+                                <span class="info-btn" data-tooltip="Общее количество показов креатива. Влияет на масштаб воронки.">?</span>
                             </label>
                             <div class="funnel-param-card__row">
                                 <input type="range" id="impressions-count" class="funnel-param-card__slider"
@@ -143,7 +136,7 @@
                         <div class="funnel-param-card">
                             <label class="funnel-param-card__label" for="ctr-teaser">
                                 <span class="funnel-param-card__text">CTR тизера</span>
-                                <button type="button" class="funnel-param-card__info" data-tooltip="Норма: 0.5-2%. Определяет кликабельность креатива.">ⓘ</button>
+                                <span class="info-btn" data-tooltip="Норма: 0.5-2%. Определяет кликабельность креатива.">?</span>
                             </label>
                             <div class="funnel-param-card__row">
                                 <input type="range" id="ctr-teaser" class="funnel-param-card__slider"
@@ -159,7 +152,7 @@
                         <div class="funnel-param-card">
                             <label class="funnel-param-card__label" for="cpc-value">
                                 <span class="funnel-param-card__text">Стоимость клика (CPC)</span>
-                                <button type="button" class="funnel-param-card__info" data-tooltip="Цена за один клик. Зависит от ГЕО и вертикали.">ⓘ</button>
+                                <span class="info-btn" data-tooltip="Цена за один клик. Зависит от ГЕО и вертикали.">?</span>
                             </label>
                             <div class="funnel-param-card__row">
                                 <input type="range" id="cpc-value" class="funnel-param-card__slider"
@@ -181,7 +174,7 @@
                         <div class="funnel-param-card">
                             <label class="funnel-param-card__label" for="preland-ctr">
                                 <span class="funnel-param-card__text">Пробив преленда</span>
-                                <button type="button" class="funnel-param-card__info" data-tooltip="Норма: 15-30%. Показывает, как статья прогревает пользователя.">ⓘ</button>
+                                <span class="info-btn" data-tooltip="Норма: 15-30%. Показывает, как статья прогревает пользователя.">?</span>
                             </label>
                             <div class="funnel-param-card__row">
                                 <input type="range" id="preland-ctr" class="funnel-param-card__slider"
@@ -197,7 +190,7 @@
                         <div class="funnel-param-card">
                             <label class="funnel-param-card__label" for="landing-cr">
                                 <span class="funnel-param-card__text">Конверсия лендинга</span>
-                                <button type="button" class="funnel-param-card__info" data-tooltip="Норма: 1-3%. Показывает эффективность продажи на сайте.">ⓘ</button>
+                                <span class="info-btn" data-tooltip="Норма: 1-3%. Показывает эффективность продажи на сайте.">?</span>
                             </label>
                             <div class="funnel-param-card__row">
                                 <input type="range" id="landing-cr" class="funnel-param-card__slider"
@@ -213,7 +206,7 @@
                         <div class="funnel-param-card">
                             <label class="funnel-param-card__label" for="approval-rate">
                                 <span class="funnel-param-card__text">Аппрув КЦ</span>
-                                <button type="button" class="funnel-param-card__info" data-tooltip="Норма: 25-40%. Процент выкупленных заказов после прозвона.">ⓘ</button>
+                                <span class="info-btn" data-tooltip="Норма: 25-40%. Процент выкупленных заказов после прозвона.">?</span>
                             </label>
                             <div class="funnel-param-card__row">
                                 <input type="range" id="approval-rate" class="funnel-param-card__slider"
@@ -229,7 +222,7 @@
                         <div class="funnel-param-card">
                             <label class="funnel-param-card__label" for="payout-value">
                                 <span class="funnel-param-card__text">Выплата за лид (Payout)</span>
-                                <button type="button" class="funnel-param-card__info" data-tooltip="Сумма выплаты от рекламодателя за подтверждённый заказ.">ⓘ</button>
+                                <span class="info-btn" data-tooltip="Сумма выплаты от рекламодателя за подтверждённый заказ.">?</span>
                             </label>
                             <div class="funnel-param-card__row">
                                 <input type="range" id="payout-value" class="funnel-param-card__slider"
