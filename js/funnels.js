@@ -5,27 +5,18 @@
 
 export default class FunnelVisualization {
     constructor() {
-        // Base constant
-        this.BASE_IMPRESSIONS = 100000;
-
         // DOM elements
         this.sliders = {};
         this.sliderOutputs = {};
         this.metricOutputs = {};
         this.dropoffOutputs = {};
         this.benchmarkElements = {};
-        this.fills = {};
 
         // State
         this.storageKey = 'mf_funnel_state';
 
         // Formatters
         this.numberFmt = new Intl.NumberFormat('ru-RU');
-        this.percentFmt = new Intl.NumberFormat('ru-RU', { 
-            style: 'percent', 
-            minimumFractionDigits: 2, 
-            maximumFractionDigits: 2 
-        });
     }
 
     /**
@@ -35,10 +26,11 @@ export default class FunnelVisualization {
         this.mapDOMElements();
         this.loadState();
         this.bindEvents();
-        
-        // Dispatch input events to sync UI after loading state
+        this.bindPresetButtons();
+
+        // Sync UI after loading state
         this.syncUI();
-        
+
         // Initial calculation
         this.calculate();
 
@@ -51,18 +43,24 @@ export default class FunnelVisualization {
     mapDOMElements() {
         // Sliders
         this.sliders = {
+            impressions: document.getElementById('impressions-count'),
             ctrTeaser: document.getElementById('ctr-teaser'),
+            cpc: document.getElementById('cpc-value'),
             preland: document.getElementById('preland-ctr'),
             landing: document.getElementById('landing-cr'),
-            approval: document.getElementById('approval-rate')
+            approval: document.getElementById('approval-rate'),
+            payout: document.getElementById('payout-value')
         };
 
         // Slider value outputs
         this.sliderOutputs = {
+            impressions: document.getElementById('impressions-count-value'),
             ctrTeaser: document.getElementById('ctr-teaser-value'),
+            cpc: document.getElementById('cpc-value-display'),
             preland: document.getElementById('preland-ctr-value'),
             landing: document.getElementById('landing-cr-value'),
-            approval: document.getElementById('approval-rate-value')
+            approval: document.getElementById('approval-rate-value'),
+            payout: document.getElementById('payout-value-display')
         };
 
         // Metric outputs
@@ -105,15 +103,6 @@ export default class FunnelVisualization {
             avgDropoff: document.getElementById('avg-dropoff'),
             bottleneck: document.getElementById('bottleneck-stage')
         };
-
-        // Visual fills (progress bars)
-        this.fills = {
-            impressions: document.querySelector('[data-stage="impressions"] .funnel-node__metric-value'),
-            clicks: document.querySelector('[data-stage="clicks"] .funnel-node__value'),
-            preland: document.querySelector('[data-stage="preland"] .funnel-node__value'),
-            leads: document.querySelector('[data-stage="leads"] .funnel-node__value'),
-            approved: document.querySelector('[data-stage="approved"] .funnel-node__value')
-        };
     }
 
     /**
@@ -125,18 +114,11 @@ export default class FunnelVisualization {
             if (!state) return;
 
             // Restore slider values
-            if (state.ctrTeaser && this.sliders.ctrTeaser) {
-                this.sliders.ctrTeaser.value = state.ctrTeaser;
-            }
-            if (state.preland && this.sliders.preland) {
-                this.sliders.preland.value = state.preland;
-            }
-            if (state.landing && this.sliders.landing) {
-                this.sliders.landing.value = state.landing;
-            }
-            if (state.approval && this.sliders.approval) {
-                this.sliders.approval.value = state.approval;
-            }
+            Object.entries(this.sliders).forEach(([key, slider]) => {
+                if (slider && state[key] !== undefined) {
+                    slider.value = state[key];
+                }
+            });
 
             console.log('[FunnelVisualization] State loaded from localStorage');
         } catch (error) {
@@ -149,13 +131,11 @@ export default class FunnelVisualization {
      */
     saveState() {
         try {
-            const state = {
-                ctrTeaser: this.sliders.ctrTeaser?.value,
-                preland: this.sliders.preland?.value,
-                landing: this.sliders.landing?.value,
-                approval: this.sliders.approval?.value,
-                timestamp: Date.now()
-            };
+            const state = {};
+            Object.entries(this.sliders).forEach(([key, slider]) => {
+                if (slider) state[key] = slider.value;
+            });
+            state.timestamp = Date.now();
             storage.set(this.storageKey, state);
         } catch (error) {
             console.error('[FunnelVisualization] Save state error:', error);
@@ -166,17 +146,9 @@ export default class FunnelVisualization {
      * Sync UI after loading state
      */
     syncUI() {
-        // Update slider output displays
         Object.entries(this.sliders).forEach(([key, slider]) => {
             if (slider && this.sliderOutputs[key]) {
                 this.updateSliderOutput(key, slider.value);
-            }
-        });
-
-        // Dispatch input events to trigger any other listeners
-        Object.values(this.sliders).forEach(slider => {
-            if (slider) {
-                slider.dispatchEvent(new Event('input'));
             }
         });
     }
@@ -198,17 +170,46 @@ export default class FunnelVisualization {
     }
 
     /**
+     * Bind preset buttons
+     */
+    bindPresetButtons() {
+        document.querySelectorAll('.funnel-param-card__preset-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const value = btn.dataset.value;
+                // Find the parent card's slider
+                const card = btn.closest('.funnel-param-card');
+                const slider = card?.querySelector('.funnel-param-card__slider');
+                if (slider) {
+                    slider.value = value;
+                    slider.dispatchEvent(new Event('input'));
+                }
+            });
+        });
+    }
+
+    /**
      * Update slider output display
      */
     updateSliderOutput(key, value) {
         const output = this.sliderOutputs[key];
         if (!output) return;
 
-        // Format: 1 decimal for CTR and Landing CR, integer for others
-        if (key === 'ctrTeaser' || key === 'landing') {
-            output.textContent = parseFloat(value).toFixed(1);
-        } else {
-            output.textContent = Math.round(parseFloat(value));
+        switch (key) {
+            case 'impressions':
+                output.textContent = this.numberFmt.format(parseInt(value));
+                break;
+            case 'ctrTeaser':
+            case 'landing':
+                output.textContent = parseFloat(value).toFixed(1);
+                break;
+            case 'cpc':
+                output.textContent = parseFloat(value).toFixed(2);
+                break;
+            case 'payout':
+                output.textContent = Math.round(parseFloat(value));
+                break;
+            default:
+                output.textContent = Math.round(parseFloat(value));
         }
     }
 
@@ -221,7 +222,7 @@ export default class FunnelVisualization {
     }
 
     /**
-     * Safe dropoff calculation (prevents Infinity/NaN)
+     * Safe dropoff calculation
      */
     calculateDropoff(previous, current) {
         if (previous === 0) return 0;
@@ -230,18 +231,16 @@ export default class FunnelVisualization {
     }
 
     /**
-     * Detect bottleneck (excludes Impressions -> Clicks)
+     * Detect bottleneck
      */
     detectBottleneck(dropoffs) {
-        // Only compare Preland, Landing, and Approval dropoffs
         const stages = [
             { name: 'Пробив преленда', dropoff: dropoffs.preland },
             { name: 'Конверсия лендинга', dropoff: dropoffs.landing },
             { name: 'Аппрув КЦ', dropoff: dropoffs.approval }
         ];
 
-        // Find highest dropoff
-        const bottleneck = stages.reduce((max, stage) => 
+        const bottleneck = stages.reduce((max, stage) =>
             stage.dropoff > max.dropoff ? stage : max
         , { name: '—', dropoff: 0 });
 
@@ -293,38 +292,37 @@ export default class FunnelVisualization {
      */
     calculate() {
         try {
-            // Get slider values with strict parsing
+            // Get slider values
+            const impressions = this.safeParse(this.sliders.impressions?.value, 100000);
             const ctrTeaser = this.safeParse(this.sliders.ctrTeaser?.value, 1.2);
+            const cpc = this.safeParse(this.sliders.cpc?.value, 0.05);
             const prelandCtr = this.safeParse(this.sliders.preland?.value, 25);
             const landingCr = this.safeParse(this.sliders.landing?.value, 2.5);
             const approvalRate = this.safeParse(this.sliders.approval?.value, 35);
+            const payout = this.safeParse(this.sliders.payout?.value, 15);
 
-            // WATERFALL MATH (using Math.floor)
-            const clicks = Math.floor(this.BASE_IMPRESSIONS * (ctrTeaser / 100));
+            // WATERFALL MATH
+            const clicks = Math.floor(impressions * (ctrTeaser / 100));
             const prelandClicks = Math.floor(clicks * (prelandCtr / 100));
             const leads = Math.floor(prelandClicks * (landingCr / 100));
             const approved = Math.floor(leads * (approvalRate / 100));
 
-            // Financial calculations (CPC = $0.05, Payout = $15)
-            const cpc = 0.05;
-            const payout = 15;
+            // Financial calculations
             const totalCost = clicks * cpc;
             const revenue = approved * payout;
             const profit = revenue - totalCost;
             const roi = totalCost > 0 ? (profit / totalCost) * 100 : 0;
 
-            // DROPOFF CALCULATIONS (with safeguard)
+            // DROPOFF CALCULATIONS
             const dropoffs = {
-                clicks: this.calculateDropoff(this.BASE_IMPRESSIONS, clicks),
+                clicks: this.calculateDropoff(impressions, clicks),
                 preland: this.calculateDropoff(clicks, prelandClicks),
                 landing: this.calculateDropoff(prelandClicks, leads),
                 approval: this.calculateDropoff(leads, approved)
             };
 
             // SUMMARY METRICS
-            const overallCr = this.BASE_IMPRESSIONS > 0 
-                ? (approved / this.BASE_IMPRESSIONS) * 100 
-                : 0;
+            const overallCr = impressions > 0 ? (approved / impressions) * 100 : 0;
             const avgDropoff = (dropoffs.clicks + dropoffs.preland + dropoffs.landing + dropoffs.approval) / 4;
 
             // BOTTLENECK DETECTION
@@ -332,7 +330,7 @@ export default class FunnelVisualization {
 
             // UPDATE DOM
             this.updateMetricOutputs({
-                impressions: this.BASE_IMPRESSIONS,
+                impressions,
                 clicks,
                 preland: prelandClicks,
                 leads,
@@ -353,15 +351,7 @@ export default class FunnelVisualization {
                 bottleneck
             });
 
-            this.updateBenchmarks({ ctrTeaser, preland, landing: landingCr, approval: approvalRate });
-
-            this.updateVisualFills({
-                impressions: 100,
-                clicks: (clicks / this.BASE_IMPRESSIONS) * 100,
-                preland: (prelandClicks / this.BASE_IMPRESSIONS) * 100,
-                leads: (leads / this.BASE_IMPRESSIONS) * 100,
-                approved: (approved / this.BASE_IMPRESSIONS) * 100
-            });
+            this.updateBenchmarks({ ctrTeaser, preland: prelandCtr, landing: landingCr, approval: approvalRate });
 
         } catch (error) {
             console.error('[FunnelVisualization] Calculate error:', error);
@@ -372,10 +362,10 @@ export default class FunnelVisualization {
      * Update metric output cards
      */
     updateMetricOutputs(values) {
-        const fmtCurrency = new Intl.NumberFormat('ru-RU', { 
-            style: 'currency', 
-            currency: 'USD', 
-            minimumFractionDigits: 2 
+        const fmtCurrency = new Intl.NumberFormat('ru-RU', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 2
         });
 
         if (this.metricOutputs.impressions) {
@@ -421,14 +411,14 @@ export default class FunnelVisualization {
         }
         if (this.metricOutputs.approvedProfit) {
             this.metricOutputs.approvedProfit.textContent = fmtCurrency.format(values.profit);
-            this.metricOutputs.approvedProfit.style.color = values.profit >= 0 
-                ? 'var(--green-400)' 
+            this.metricOutputs.approvedProfit.style.color = values.profit >= 0
+                ? 'var(--green-400)'
                 : 'var(--red-400)';
         }
         if (this.metricOutputs.approvedRoi) {
             this.metricOutputs.approvedRoi.textContent = `${values.roi.toFixed(0)}%`;
-            this.metricOutputs.approvedRoi.style.color = values.roi >= 0 
-                ? 'var(--green-400)' 
+            this.metricOutputs.approvedRoi.style.color = values.roi >= 0
+                ? 'var(--green-400)'
                 : 'var(--red-400)';
         }
     }
@@ -464,26 +454,5 @@ export default class FunnelVisualization {
         if (this.summary.bottleneck) {
             this.summary.bottleneck.textContent = values.bottleneck;
         }
-    }
-
-    /**
-     * Update visual fill bars (fix collapsed UI bug)
-     */
-    updateVisualFills(progress) {
-        // Update CSS custom properties for visual bars
-        const nodes = document.querySelectorAll('.funnel-node');
-        
-        nodes.forEach(node => {
-            const stage = node.dataset.stage;
-            if (stage && progress[stage] !== undefined) {
-                node.style.setProperty('--fill-width', `${progress[stage]}%`);
-                
-                // Also update any progress bar elements
-                const progressBar = node.querySelector('.funnel-node__progress-bar');
-                if (progressBar) {
-                    progressBar.style.width = `${progress[stage]}%`;
-                }
-            }
-        });
     }
 }
