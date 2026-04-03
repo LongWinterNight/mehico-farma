@@ -736,6 +736,33 @@
     }
 }
 
+/* Tooltip adjustments for mobile */
+@media (max-width: 640px) {
+    .info-btn::after {
+        min-width: 140px;
+        max-width: 200px;
+        font-size: 11px;
+        padding: 6px 10px;
+        left: 0;
+        transform: none;
+    }
+
+    .info-btn::before {
+        left: 10px;
+        transform: none;
+    }
+
+    .info-btn:hover::after,
+    .info-btn:focus::after {
+        transform: none;
+    }
+
+    .info-btn:hover::before,
+    .info-btn:focus::before {
+        transform: none;
+    }
+}
+
 @media (max-width: 480px) {
     .funnels-page {
         padding: var(--space-2);
