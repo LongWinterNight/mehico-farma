@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Аналитический дашборд для CPA Affiliate Marketing проекта - LATAM Nutra Arbitrage (Mexico)">
+    <meta name="theme-color" content="#0f172a">
+    <title>Mehico Farma | CPA Analytics Dashboard</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+
+    <!-- ============================================
+         HEADER: Glassmorphism Navigation
+         ============================================ -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <!-- Brand -->
+            <a href="index.html" class="header__brand">
+                <div class="header__logo">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="40" height="40" rx="12" fill="url(#logo-gradient)"/>
+                        <path d="M20 8L28 20L20 32L12 20L20 8Z" fill="white" fill-opacity="0.9"/>
+                        <defs>
+                            <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                                <stop stop-color="#06b6d4"/>
+                                <stop offset="1" stop-color="#a855f7"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="header__title">Mehico Farma</span>
+            </a>
+
+            <!-- Navigation -->
+            <nav class="header__nav" role="navigation" aria-label="Основная навигация">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a href="index.html" class="header__nav-link header__nav-link--active">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                            <span>Обзор</span>
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="unit-economics.html" class="header__nav-link">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                            <span>Юнит-экономика</span>
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="funnels.html" class="header__nav-link">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                            </svg>
+                            <span>Воронки</span>
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="prompts.html" class="header__nav-link">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            <span>Промпты</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Status -->
+            <div class="header__status">
+                <span class="header__status-dot"></span>
+                <span class="header__status-text">Online</span>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="header__menu-toggle" aria-label="Меню" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
+    <main id="main-content" class="main" role="main">
+        
+        <!-- Hero Dashboard -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__container">
+                <header class="hero__header">
+                    <div class="hero__badge">
+                        <span class="hero__badge-dot"></span>
+                        LATAM Nutra Arbitrage
+                    </div>
+                    <h1 id="hero-title" class="hero__title">
+                        Mexico Market
+                        <span class="hero__title-accent">Dashboard</span>
+                    </h1>
+                    <p class="hero__subtitle">
+                        Real-time CPA affiliate marketing analytics and performance tracking
+                    </p>
+                </header>
+
+                <!-- KPI Cards -->
+                <div class="hero__metrics">
+                    <article class="hero__metric metric" data-tilt>
+                        <div class="metric__icon metric__icon--budget">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <div class="metric__content">
+                            <span class="metric__label">Начальный бюджет</span>
+                            <div class="metric__value">
+                                <span class="metric__currency">$</span>
+                                <span class="metric__number" data-counter data-target="500">0</span>
+                            </div>
+                            <span class="metric__status metric__status--active">● Доступно</span>
+                        </div>
+                    </article>
+
+                    <article class="hero__metric metric" data-tilt>
+                        <div class="metric__icon metric__icon--roi">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                <polyline points="17 6 23 6 23 12"/>
+                            </svg>
+                        </div>
+                        <div class="metric__content">
+                            <span class="metric__label">Целевой ROI</span>
+                            <div class="metric__value">
+                                <span class="metric__number" data-counter data-target="300">0</span>
+                                <span class="metric__percent">%</span>
+                            </div>
+                            <span class="metric__status metric__status--warning">● Агрессивно</span>
+                        </div>
+                    </article>
+
+                    <article class="hero__metric metric" data-tilt>
+                        <div class="metric__icon metric__icon--phase">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div class="metric__content">
+                            <span class="metric__label">Текущая фаза</span>
+                            <div class="metric__value">
+                                <span class="metric__number" data-counter data-target="3">0</span>
+                                <span class="metric__divider">из 5</span>
+                            </div>
+                            <div class="metric__progress">
+                                <div class="metric__progress-bar" style="--progress: 60%"></div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Info Tags -->
+                <div class="hero__tags">
+                    <span class="hero__tag">🌎 Latin America (MX)</span>
+                    <span class="hero__tag">💊 Health & Beauty</span>
+                    <span class="hero__tag">📦 COD Model</span>
+                    <span class="hero__tag">🕐 <time id="last-updated">--:--</time></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Knowledge Base -->
+        <section class="knowledge-base" aria-labelledby="kb-title">
+            <div class="knowledge-base__container">
+                <header class="knowledge-base__header">
+                    <h2 id="kb-title" class="knowledge-base__title">
+                        <span>📚</span>
+                        База знаний
+                    </h2>
+                    <p class="knowledge-base__subtitle">
+                        Текущие активы, инфраструктура и операционная настройка
+                    </p>
+                </header>
+
+                <div class="knowledge-base__grid">
+                    <!-- Card 1: Traffic -->
+                    <article class="knowledge-base__card kb-card" data-tilt>
+                        <div class="kb-card__header">
+                            <div class="kb-card__icon kb-card__icon--traffic">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                </svg>
+                            </div>
+                            <h3 class="kb-card__title">Источники трафика</h3>
+                        </div>
+                        <div class="kb-card__body">
+                            <div class="kb-card__tags">
+                                <span class="kb-card__tag kb-card__tag--primary">Native Networks</span>
+                                <span class="kb-card__tag">AdsKeeper</span>
+                                <span class="kb-card__tag">Content Recommendation</span>
+                            </div>
+                            <p class="kb-card__description">
+                                Основные источники трафика оптимизированы для мексиканского рынка с использованием нативных рекламных форматов
+                            </p>
+                        </div>
+                        <div class="kb-card__footer">
+                            <span class="kb-card__status">● Активные кампании</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 2: Tech Stack -->
+                    <article class="knowledge-base__card kb-card" data-tilt>
+                        <div class="kb-card__header">
+                            <div class="kb-card__icon kb-card__icon--tech">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="16 18 22 12 16 6"/>
+                                    <polyline points="8 6 2 12 8 18"/>
+                                </svg>
+                            </div>
+                            <h3 class="kb-card__title">Технический стек</h3>
+                        </div>
+                        <div class="kb-card__body">
+                            <div class="kb-card__tags">
+                                <span class="kb-card__tag kb-card__tag--primary">Keitaro Tracker</span>
+                                <span class="kb-card__tag">VPS Hosting</span>
+                                <span class="kb-card__tag">Analytics</span>
+                            </div>
+                            <p class="kb-card__description">
+                                Полноценная инфраструктура трекинга с Keitaro для управления кампаниями и VPS для размещения лендингов
+                            </p>
+                        </div>
+                        <div class="kb-card__footer">
+                            <span class="kb-card__status">● Инфраструктура готова</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 3: Legal -->
+                    <article class="knowledge-base__card kb-card" data-tilt>
+                        <div class="kb-card__header">
+                            <div class="kb-card__icon kb-card__icon--legal">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <h3 class="kb-card__title">Юридическая структура</h3>
+                        </div>
+                        <div class="kb-card__body">
+                            <div class="kb-card__tags">
+                                <span class="kb-card__tag kb-card__tag--primary">НПД (Самозанятый)</span>
+                                <span class="kb-card__tag">Freelance</span>
+                                <span class="kb-card__tag">Crypto-Friendly</span>
+                            </div>
+                            <p class="kb-card__description">
+                                Современная структура фриланса со статусом самозанятого (НПД) для налоговой эффективности
+                            </p>
+                        </div>
+                        <div class="kb-card__footer">
+                            <span class="kb-card__status">● Соответствует требованиям</span>
+                        </div>
+                    </article>
+
+                    <!-- Card 4: Payments -->
+                    <article class="knowledge-base__card kb-card" data-tilt>
+                        <div class="kb-card__header">
+                            <div class="kb-card__icon kb-card__icon--payment">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                                    <line x1="1" y1="10" x2="23" y2="10"/>
+                                </svg>
+                            </div>
+                            <h3 class="kb-card__title">Платёжный поток</h3>
+                        </div>
+                        <div class="kb-card__body">
+                            <div class="kb-card__tags">
+                                <span class="kb-card__tag kb-card__tag--primary">COD Model</span>
+                                <span class="kb-card__tag">Local Courier</span>
+                                <span class="kb-card__tag">95% Collection</span>
+                            </div>
+                            <p class="kb-card__description">
+                                Модель Cash-on-Delivery оптимизирована для рынка LATAM с партнёрством местных курьерских служб
+                            </p>
+                        </div>
+                        <div class="kb-card__footer">
+                            <span class="kb-card__status">● Обработка</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <div class="footer__content">
+                <p class="footer__text">
+                    © 2026 Mehico Farma • CPA Analytics Dashboard
+                </p>
+                <p class="footer__text footer__text--muted">
+                    LATAM Nutra Arbitrage • Modern Web Architecture
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Modules -->
+    <script src="js/storage.js"></script>
+    <script src="js/tilt.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/clipboard.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

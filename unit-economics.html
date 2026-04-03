@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Калькулятор юнит-экономики для CPA Affiliate Marketing">
+    <meta name="theme-color" content="#0f172a">
+    <title>Юнит-экономика | Mehico Farma</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="index.html" class="header__brand">
+                <div class="header__logo">
+                    <svg viewBox="0 0 40 40" fill="none">
+                        <rect width="40" height="40" rx="12" fill="url(#logo-gradient)"/>
+                        <path d="M20 8L28 20L20 32L12 20L20 8Z" fill="white" fill-opacity="0.9"/>
+                        <defs>
+                            <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                                <stop stop-color="#06b6d4"/>
+                                <stop offset="1" stop-color="#a855f7"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="header__title">Mehico Farma</span>
+            </a>
+
+            <nav class="header__nav" role="navigation">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a href="index.html" class="header__nav-link">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                            <span>Обзор</span>
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="unit-economics.html" class="header__nav-link header__nav-link--active">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                            <span>Юнит-экономика</span>
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="funnels.html" class="header__nav-link">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                            </svg>
+                            <span>Воронки</span>
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="prompts.html" class="header__nav-link">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            <span>Промпты</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header__status">
+                <span class="header__status-dot"></span>
+                <span class="header__status-text">Online</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main" role="main">
+        <section class="unit-economics" aria-labelledby="ue-title">
+            <div class="unit-economics__container">
+                <!-- Page Header -->
+                <header class="unit-economics__header">
+                    <div>
+                        <h1 id="ue-title" class="unit-economics__title">
+                            <span>💰</span>
+                            Калькулятор юнит-экономики
+                        </h1>
+                        <p class="unit-economics__subtitle">
+                            Расширенный расчёт финансовых метрик для CPA-кампаний (Nutra, COD модель)
+                        </p>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="unit-economics__actions">
+                        <div class="scenario-selector">
+                            <label for="scenario-select" class="scenario-selector__label">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                                Сценарий:
+                            </label>
+                            <select id="scenario-select" class="scenario-selector__select">
+                                <option value="A">Сценарий A</option>
+                                <option value="B">Сценарий B</option>
+                                <option value="C">Сценарий C</option>
+                            </select>
+                        </div>
+
+                        <div class="quick-presets">
+                            <button type="button" class="quick-presets__btn" data-preset="nutra">🌿 Nutra</button>
+                            <button type="button" class="quick-presets__btn" data-preset="gambling">🎰 Gambling</button>
+                            <button type="button" class="quick-presets__btn" data-preset="crypto">₿ Crypto</button>
+                        </div>
+
+                        <div class="quick-actions">
+                            <button type="button" class="quick-actions__btn quick-actions__btn--optimistic" data-scenario="optimistic">📈 Оптимистичный</button>
+                            <button type="button" class="quick-actions__btn quick-actions__btn--realistic" data-scenario="realistic">📊 Реалистичный</button>
+                            <button type="button" class="quick-actions__btn quick-actions__btn--pessimistic" data-scenario="pessimistic">📉 Пессимистичный</button>
+                        </div>
+
+                        <div class="export-actions">
+                            <button type="button" class="export-actions__btn" id="export-csv" title="Экспорт CSV">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </button>
+                            <button type="button" class="export-actions__btn" id="copy-link" title="Копировать ссылку">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </header>
+
+                <!-- Calculator Grid -->
+                <div class="unit-economics__layout">
+                    <!-- Input Panel -->
+                    <aside class="input-panel" aria-label="Входные параметры">
+                        <div class="input-panel__content">
+                            <h2 class="input-panel__title">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                </svg>
+                                Входные параметры
+                            </h2>
+
+                            <form class="input-panel__form" id="ue-form">
+                                <!-- Бюджет на рекламу -->
+                                <div class="input-group">
+                                    <label class="input-group__label" for="ad-spend">
+                                        <span class="input-group__text">Бюджет на рекламу</span>
+                                        <button type="button" class="input-group__info" title="Общая сумма денег, которую вы планируете потратить на рекламную кампанию">ⓘ</button>
+                                        <span class="input-group__hint">Общий бюджет на кампанию</span>
+                                    </label>
+                                    <div class="input-group__row">
+                                        <div class="input-group__field">
+                                            <span class="input-group__prefix">$</span>
+                                            <input type="number" id="ad-spend" class="input-group__input" value="500" min="100" max="10000" step="50">
+                                        </div>
+                                        <div class="input-group__stepper">
+                                            <button type="button" class="input-group__stepper-btn" data-action="increase" data-target="ad-spend">+</button>
+                                            <button type="button" class="input-group__stepper-btn" data-action="decrease" data-target="ad-spend">−</button>
+                                        </div>
+                                    </div>
+                                    <div class="input-group__presets">
+                                        <button type="button" class="input-group__preset" data-value="300">$300</button>
+                                        <button type="button" class="input-group__preset" data-value="500">$500</button>
+                                        <button type="button" class="input-group__preset" data-value="1000">$1000</button>
+                                        <button type="button" class="input-group__preset" data-value="2000">$2000</button>
+                                    </div>
+                                </div>
+
+                                <!-- Стоимость клика -->
+                                <div class="input-group">
+                                    <label class="input-group__label" for="cpc">
+                                        <span class="input-group__text">Стоимость клика (CPC)</span>
+                                        <button type="button" class="input-group__info" title="Цена за один клик по вашему рекламному объявлению. Зависит от ГЕО, вертикали и качества трафика">ⓘ</button>
+                                        <span class="input-group__hint">Native ads: $0.03-0.10</span>
+                                    </label>
+                                    <div class="input-group__row">
+                                        <div class="input-group__field">
+                                            <span class="input-group__prefix">$</span>
+                                            <input type="number" id="cpc" class="input-group__input" value="0.05" min="0.01" max="5" step="0.01">
+                                        </div>
+                                        <div class="input-group__stepper">
+                                            <button type="button" class="input-group__stepper-btn" data-action="increase" data-target="cpc">+</button>
+                                            <button type="button" class="input-group__stepper-btn" data-action="decrease" data-target="cpc">−</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Конверсия лендинга -->
+                                <div class="input-group">
+                                    <label class="input-group__label" for="cr">
+                                        <span class="input-group__text">Конверсия лендинга (CR)</span>
+                                        <button type="button" class="input-group__info" title="Процент посетителей лендинга, которые оставили заявку. Зависит от качества трафика и посадочной страницы">ⓘ</button>
+                                        <span class="input-group__hint">Бенчмарк: 1-3%</span>
+                                    </label>
+                                    <div class="input-group__row">
+                                        <div class="input-group__field">
+                                            <span class="input-group__suffix">%</span>
+                                            <input type="number" id="cr" class="input-group__input" value="1.5" min="0.1" max="20" step="0.1">
+                                        </div>
+                                        <div class="input-group__stepper">
+                                            <button type="button" class="input-group__stepper-btn" data-action="increase" data-target="cr">+</button>
+                                            <button type="button" class="input-group__stepper-btn" data-action="decrease" data-target="cr">−</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Аппрув КЦ -->
+                                <div class="input-group">
+                                    <label class="input-group__label" for="approval-rate">
+                                        <span class="input-group__text">Аппрув КЦ</span>
+                                        <button type="button" class="input-group__info" title="Процент дозвонившихся до клиента, которые подтвердили заказ. Важный показатель для COD (cash on delivery)">ⓘ</button>
+                                        <span class="input-group__hint">COD: 20-40%</span>
+                                    </label>
+                                    <div class="input-group__row">
+                                        <div class="input-group__field">
+                                            <span class="input-group__suffix">%</span>
+                                            <input type="number" id="approval-rate" class="input-group__input" value="30" min="5" max="80" step="1">
+                                        </div>
+                                        <div class="input-group__stepper">
+                                            <button type="button" class="input-group__stepper-btn" data-action="increase" data-target="approval-rate">+</button>
+                                            <button type="button" class="input-group__stepper-btn" data-action="decrease" data-target="approval-rate">−</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Выплата за лид -->
+                                <div class="input-group">
+                                    <label class="input-group__label" for="payout">
+                                        <span class="input-group__text">Выплата за лид</span>
+                                        <button type="button" class="input-group__info" title="Сумма, которую вы получаете от рекламодателя за каждый подтверждённый заказ (аппрув)">ⓘ</button>
+                                        <span class="input-group__hint">Nutra: $10-50</span>
+                                    </label>
+                                    <div class="input-group__row">
+                                        <div class="input-group__field">
+                                            <span class="input-group__prefix">$</span>
+                                            <input type="number" id="payout" class="input-group__input" value="15" min="5" max="500" step="1">
+                                        </div>
+                                        <div class="input-group__stepper">
+                                            <button type="button" class="input-group__stepper-btn" data-action="increase" data-target="payout">+</button>
+                                            <button type="button" class="input-group__stepper-btn" data-action="decrease" data-target="payout">−</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Reset -->
+                                <button type="button" class="input-panel__reset" id="reset-btn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                                    </svg>
+                                    Сбросить
+                                </button>
+                            </form>
+                        </div>
+                    </aside>
+
+                    <!-- Metrics Panel -->
+                    <div class="metrics-panel" role="region" aria-label="Финансовые метрики">
+                        <h2 class="metrics-panel__title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                            Финансовые метрики
+                        </h2>
+
+                        <div class="metrics-panel__grid">
+                            <!-- Clicks -->
+                            <article class="metrics-panel__card metric-card" data-tilt>
+                                <div class="metric-card__icon metric-card__icon--clicks">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"/>
+                                    </svg>
+                                </div>
+                                <div class="metric-card__content">
+                                    <span class="metric-card__label">Клики</span>
+                                    <div class="metric-card__value" id="clicks-value">0</div>
+                                    <span class="metric-card__formula">Бюджет / CPC</span>
+                                </div>
+                            </article>
+
+                            <!-- Leads -->
+                            <article class="metrics-panel__card metric-card" data-tilt>
+                                <div class="metric-card__icon metric-card__icon--leads">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                                    </svg>
+                                </div>
+                                <div class="metric-card__content">
+                                    <span class="metric-card__label">Лиды</span>
+                                    <div class="metric-card__value" id="leads-value">0</div>
+                                    <span class="metric-card__formula">Клики × CR</span>
+                                </div>
+                            </article>
+
+                            <!-- Approved -->
+                            <article class="metrics-panel__card metric-card" data-tilt>
+                                <div class="metric-card__icon metric-card__icon--approved">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"/>
+                                    </svg>
+                                </div>
+                                <div class="metric-card__content">
+                                    <span class="metric-card__label">Аппрув</span>
+                                    <div class="metric-card__value" id="approved-value">0</div>
+                                    <span class="metric-card__formula">Лиды × Аппрув</span>
+                                </div>
+                            </article>
+
+                            <!-- CPL -->
+                            <article class="metrics-panel__card metric-card" data-tilt>
+                                <div class="metric-card__icon metric-card__icon--cpl">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                    </svg>
+                                </div>
+                                <div class="metric-card__content">
+                                    <span class="metric-card__label">CPL</span>
+                                    <div class="metric-card__value metric-card__value--decimal"><span class="metric-card__currency">$</span><span id="cpl-value">0.00</span></div>
+                                    <span class="metric-card__formula">Бюджет / Лиды</span>
+                                </div>
+                            </article>
+
+                            <!-- CPA -->
+                            <article class="metrics-panel__card metric-card" data-tilt>
+                                <div class="metric-card__icon metric-card__icon--cpa">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/>
+                                    </svg>
+                                </div>
+                                <div class="metric-card__content">
+                                    <span class="metric-card__label">CPA</span>
+                                    <div class="metric-card__value metric-card__value--decimal"><span class="metric-card__currency">$</span><span id="cpa-value">0.00</span></div>
+                                    <span class="metric-card__formula">Бюджет / Аппрув</span>
+                                </div>
+                            </article>
+
+                            <!-- Revenue -->
+                            <article class="metrics-panel__card metric-card" data-tilt>
+                                <div class="metric-card__icon metric-card__icon--revenue">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                    </svg>
+                                </div>
+                                <div class="metric-card__content">
+                                    <span class="metric-card__label">Выручка</span>
+                                    <div class="metric-card__value metric-card__value--decimal"><span class="metric-card__currency">$</span><span id="revenue-value">0.00</span></div>
+                                    <span class="metric-card__formula">Аппрув × Payout</span>
+                                </div>
+                            </article>
+
+                            <!-- Break-even CPA -->
+                            <article class="metrics-panel__card metric-card" data-tilt>
+                                <div class="metric-card__icon metric-card__icon--breakeven">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                                    </svg>
+                                </div>
+                                <div class="metric-card__content">
+                                    <span class="metric-card__label">Break-even CPA</span>
+                                    <div class="metric-card__value metric-card__value--decimal"><span class="metric-card__currency">$</span><span id="breakeven-value">0.00</span></div>
+                                    <span class="metric-card__formula">Payout × Аппрув</span>
+                                </div>
+                            </article>
+
+                            <!-- RPC -->
+                            <article class="metrics-panel__card metric-card" data-tilt>
+                                <div class="metric-card__icon metric-card__icon--rpc">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                    </svg>
+                                </div>
+                                <div class="metric-card__content">
+                                    <span class="metric-card__label">Revenue / Click</span>
+                                    <div class="metric-card__value metric-card__value--decimal"><span class="metric-card__currency">$</span><span id="rpc-value">0.000</span></div>
+                                    <span class="metric-card__formula">Выручка / Клики</span>
+                                </div>
+                            </article>
+
+                            <!-- Profit (Large) -->
+                            <article class="metrics-panel__card metric-card metric-card--lg metric-card--profit" data-tilt>
+                                <div class="metric-card__icon metric-card__icon--profit">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+                                    </svg>
+                                </div>
+                                <div class="metric-card__content">
+                                    <span class="metric-card__label">Чистая прибыль</span>
+                                    <div class="metric-card__value metric-card__value--decimal metric-card__value--large"><span class="metric-card__currency">$</span><span id="profit-value">0.00</span></div>
+                                    <span class="metric-card__formula">Выручка - Бюджет</span>
+                                    <div class="metric-card__gauge" id="profit-gauge">
+                                        <div class="metric-card__gauge-fill" style="--gauge-value: 50%"></div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- ROI (Large) -->
+                            <article class="metrics-panel__card metric-card metric-card--lg metric-card--roi" data-tilt>
+                                <div class="metric-card__icon metric-card__icon--roi">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                </div>
+                                <div class="metric-card__content">
+                                    <span class="metric-card__label">ROI</span>
+                                    <div class="metric-card__value metric-card__value--percent metric-card__value--large"><span id="roi-value">0</span><span class="metric-card__percent">%</span></div>
+                                    <span class="metric-card__formula">(Прибыль / Бюджет) × 100</span>
+                                    <div class="metric-card__gauge" id="roi-gauge">
+                                        <div class="metric-card__gauge-fill" style="--gauge-value: 50%"></div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Margin -->
+                            <article class="metrics-panel__card metric-card" data-tilt>
+                                <div class="metric-card__icon metric-card__icon--margin">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                    </svg>
+                                </div>
+                                <div class="metric-card__content">
+                                    <span class="metric-card__label">Margin</span>
+                                    <div class="metric-card__value metric-card__value--percent"><span id="margin-value">0</span><span class="metric-card__percent">%</span></div>
+                                    <span class="metric-card__formula">(Прибыль / Выручка) × 100</span>
+                                </div>
+                            </article>
+
+                            <!-- Payback -->
+                            <article class="metrics-panel__card metric-card" data-tilt>
+                                <div class="metric-card__icon metric-card__icon--payback">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                </div>
+                                <div class="metric-card__content">
+                                    <span class="metric-card__label">Payback</span>
+                                    <div class="metric-card__value"><span id="payback-value">0</span> <span class="metric-card__suffix">дней</span></div>
+                                    <span class="metric-card__formula">Бюджет / (Прибыль / 30)</span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Alerts -->
+                        <div class="metrics-panel__alerts" id="alerts-container"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <div class="footer__content">
+                <p class="footer__text">© 2026 Mehico Farma • CPA Analytics Dashboard</p>
+                <p class="footer__text footer__text--muted">LATAM Nutra Arbitrage • Modern Web Architecture</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Modules -->
+    <script src="js/storage.js"></script>
+    <script src="js/tilt.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/clipboard.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/unit-economics.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="База готовых промптов для CPA Affiliate Marketing">
+    <meta name="theme-color" content="#0f172a">
+    <title>Промпты | Mehico Farma</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="index.html" class="header__brand">
+                <div class="header__logo">
+                    <svg viewBox="0 0 40 40" fill="none">
+                        <rect width="40" height="40" rx="12" fill="url(#logo-gradient)"/>
+                        <path d="M20 8L28 20L20 32L12 20L20 8Z" fill="white" fill-opacity="0.9"/>
+                        <defs>
+                            <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                                <stop stop-color="#06b6d4"/>
+                                <stop offset="1" stop-color="#a855f7"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="header__title">Mehico Farma</span>
+            </a>
+
+            <nav class="header__nav" role="navigation">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a href="index.html" class="header__nav-link">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                            <span>Обзор</span>
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="unit-economics.html" class="header__nav-link">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                            <span>Юнит-экономика</span>
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="funnels.html" class="header__nav-link">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                            </svg>
+                            <span>Воронки</span>
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="prompts.html" class="header__nav-link header__nav-link--active">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            <span>Промпты</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header__status">
+                <span class="header__status-dot"></span>
+                <span class="header__status-text">Online</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main" role="main">
+        <section class="prompts-page" aria-labelledby="prompts-title">
+            <div class="prompts-page__container">
+                <!-- Page Header -->
+                <header class="prompts-page__header">
+                    <h1 id="prompts-title" class="prompts-page__title">
+                        <span>🤖</span>
+                        База промптов
+                    </h1>
+                    <p class="prompts-page__subtitle">
+                        Готовые промпты для автоматизации CPA-маркетинга и генерации контента
+                    </p>
+                </header>
+
+                <!-- Two Column Layout -->
+                <div class="prompts-page__layout">
+                    <!-- Sidebar -->
+                    <aside class="prompts-sidebar" role="complementary" aria-label="Категории промптов">
+                        <nav class="prompts-sidebar__nav">
+                            <h2 class="prompts-sidebar__title">Категории</h2>
+                            
+                            <ul class="prompts-sidebar__list" role="tablist">
+                                <li class="prompts-sidebar__item" role="presentation">
+                                    <button class="prompts-sidebar__btn prompts-sidebar__btn--active" data-category="all" role="tab" aria-selected="true">
+                                        <span class="prompts-sidebar__btn-icon">📚</span>
+                                        <span class="prompts-sidebar__btn-text">Все промпты</span>
+                                        <span class="prompts-sidebar__btn-count">12</span>
+                                    </button>
+                                </li>
+                                <li class="prompts-sidebar__item" role="presentation">
+                                    <button class="prompts-sidebar__btn" data-category="creatives" role="tab" aria-selected="false">
+                                        <span class="prompts-sidebar__btn-icon">🎨</span>
+                                        <span class="prompts-sidebar__btn-text">Генерация креативов</span>
+                                        <span class="prompts-sidebar__btn-count">4</span>
+                                    </button>
+                                </li>
+                                <li class="prompts-sidebar__item" role="presentation">
+                                    <button class="prompts-sidebar__btn" data-category="preland" role="tab" aria-selected="false">
+                                        <span class="prompts-sidebar__btn-icon">📝</span>
+                                        <span class="prompts-sidebar__btn-text">Структура преленда</span>
+                                        <span class="prompts-sidebar__btn-count">3</span>
+                                    </button>
+                                </li>
+                                <li class="prompts-sidebar__item" role="presentation">
+                                    <button class="prompts-sidebar__btn" data-category="audience" role="tab" aria-selected="false">
+                                        <span class="prompts-sidebar__btn-icon">🎯</span>
+                                        <span class="prompts-sidebar__btn-text">Анализ ЦА</span>
+                                        <span class="prompts-sidebar__btn-count">3</span>
+                                    </button>
+                                </li>
+                                <li class="prompts-sidebar__item" role="presentation">
+                                    <button class="prompts-sidebar__btn" data-category="technical" role="tab" aria-selected="false">
+                                        <span class="prompts-sidebar__btn-icon">⚙️</span>
+                                        <span class="prompts-sidebar__btn-text">Техническая настройка</span>
+                                        <span class="prompts-sidebar__btn-count">2</span>
+                                    </button>
+                                </li>
+                            </ul>
+
+                            <!-- Search -->
+                            <div class="prompts-sidebar__search">
+                                <label class="prompts-sidebar__search-label" for="prompt-search">
+                                    <svg class="prompts-sidebar__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                                    </svg>
+                                    <span class="visually-hidden">Поиск по промптам</span>
+                                </label>
+                                <input type="text" id="prompt-search" class="prompts-sidebar__search-input" placeholder="Поиск..." autocomplete="off">
+                            </div>
+                        </nav>
+                    </aside>
+
+                    <!-- Content -->
+                    <div class="prompts-content" role="tabpanel" aria-labelledby="prompts-title">
+                        <div class="prompts-content__header">
+                            <div class="prompts-content__info">
+                                <span class="prompts-content__count" id="visible-count">12</span>
+                                <span class="prompts-content__label">промптов доступно</span>
+                            </div>
+                        </div>
+
+                        <div id="prompts-grid" class="prompts-content__grid" role="list">
+                            <!-- Card 1: Teaser Headlines -->
+                            <article class="prompts-content__card prompt-card" data-category="creatives" data-tags="тизеры,native ads,заголовки" role="listitem">
+                                <div class="prompt-card__top">
+                                    <div class="prompt-card__header">
+                                        <h3 class="prompt-card__title">Промпт для заголовков тизеров</h3>
+                                        <span class="prompt-card__badge prompt-card__badge--cyan">NATIVE ADS</span>
+                                    </div>
+                                    <p class="prompt-card__description">
+                                        Генерация цепляющих заголовков для тизерной рекламы нутра-офферов
+                                    </p>
+                                </div>
+                                <div class="prompt-card__middle">
+                                    <pre class="prompt-card__code"><code class="prompt-card__text" data-prompt-text="Действуй как эксперт по нативной рекламе для LATAM рынка.
+
+Создай 15 цепляющих заголовков для тизерной рекламы нутра-оффера (суставы/похудение/паразиты).
+
+Требования:
+1. Используй триггеры любопытства
+2. Избегай прямых обещаний лечения
+3. Адаптируй под местный менталитет
+4. Длина: 45-65 символов
+5. Добавь эмоциональный крючок
+
+Формат: таблица с колонками [Заголовок, Триггер, Длина]">Действуй как эксперт по нативной рекламе для LATAM рынка.
+
+Создай 15 цепляющих заголовков для тизерной рекламы 
+нутра-оффера (суставы/похудение/паразиты).
+
+Требования:
+1. Используй триггеры любопытства
+2. Избегай прямых обещаний лечения
+3. Адаптируй под местный менталитет
+4. Длина: 45-65 символов
+5. Добавь эмоциональный крючок
+
+Формат: таблица с колонками [Заголовок, Триггер, Длина]</code></pre>
+                                </div>
+                                <div class="prompt-card__bottom">
+                                    <button class="prompt-card__copy-btn" type="button" aria-label="Скопировать промпт" data-clipboard>
+                                        <svg class="prompt-card__copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                        </svg>
+                                        <svg class="prompt-card__check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"/>
+                                        </svg>
+                                        <span class="prompt-card__copy-text">Копировать</span>
+                                        <span class="prompt-card__copy-success">Скопировано!</span>
+                                    </button>
+                                </div>
+                            </article>
+
+                            <!-- Card 2: Facebook Ads -->
+                            <article class="prompts-content__card prompt-card" data-category="creatives" data-tags="facebook,instagram,креативы" role="listitem">
+                                <div class="prompt-card__top">
+                                    <div class="prompt-card__header">
+                                        <h3 class="prompt-card__title">Промпт для Facebook Ads</h3>
+                                        <span class="prompt-card__badge prompt-card__badge--purple">FACEBOOK ADS</span>
+                                    </div>
+                                    <p class="prompt-card__description">
+                                        Создание рекламных текстов для Facebook/Instagram с обходом модерации
+                                    </p>
+                                </div>
+                                <div class="prompt-card__middle">
+                                    <pre class="prompt-card__code"><code class="prompt-card__text" data-prompt-text="Ты — специалист по рекламным креативам для Facebook Ads.
+
+Напиши 7 вариантов описания для рекламы нутра-продукта (похудение/суставы).
+
+Структура:
+1. Боль/проблема ЦА (2-3 предложения)
+2. Эмпатия («понимаем, как это сложно»)
+3. Решение (без прямых обещаний)
+4. Social proof («1500+ довольных клиентов»)
+5. CTA (мягкий призыв)
+
+Требования:
+- Тон: дружеский, доверительный
+- Избегай слов: «лечит», «гарантия», «100%»
+- Используй 2-3 эмодзи
+- Длина: 125-175 символов">Ты — специалист по рекламным креативам для Facebook Ads.
+
+Напиши 7 вариантов описания для рекламы нутра-продукта.
+
+Структура:
+1. Боль/проблема ЦА (2-3 предложения)
+2. Эмпатия
+3. Решение (без прямых обещаний)
+4. Social proof
+5. CTA
+
+Требования:
+- Тон: дружеский, доверительный
+- Избегай запрещённых слов
+- 2-3 эмодзи
+- Длина: 125-175 символов</code></pre>
+                                </div>
+                                <div class="prompt-card__bottom">
+                                    <button class="prompt-card__copy-btn" type="button" aria-label="Скопировать промпт" data-clipboard>
+                                        <svg class="prompt-card__copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                        </svg>
+                                        <svg class="prompt-card__check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"/>
+                                        </svg>
+                                        <span class="prompt-card__copy-text">Копировать</span>
+                                        <span class="prompt-card__copy-success">Скопировано!</span>
+                                    </button>
+                                </div>
+                            </article>
+
+                            <!-- Card 3: UGC Script -->
+                            <article class="prompts-content__card prompt-card" data-category="creatives" data-tags="tiktok,reels,ugc,видео" role="listitem">
+                                <div class="prompt-card__top">
+                                    <div class="prompt-card__header">
+                                        <h3 class="prompt-card__title">Промпт для UGC-сценария</h3>
+                                        <span class="prompt-card__badge prompt-card__badge--pink">VIDEO CONTENT</span>
+                                    </div>
+                                    <p class="prompt-card__description">
+                                        Создание сценариев для коротких вертикальных видео TikTok/Reels
+                                    </p>
+                                </div>
+                                <div class="prompt-card__middle">
+                                    <pre class="prompt-card__code"><code class="prompt-card__text" data-prompt-text="Создай сценарий для 30-секундного UGC-видео в формате TikTok/Reels.
+
+Таймлайн:
+├─ 0-3 сек: HOOK (визуальный + текстовый)
+├─ 3-15 сек: PROBLEM DEMONSTRATION
+├─ 15-25 сек: SOLUTION & RESULT
+└─ 25-30 сек: CTA
+
+Для каждого блока укажи:
+- Ракурс камеры
+- Текст на экране
+- Действия актёра
+- Аудио (голос или тренд)
+
+Формат: таблица с таймкодами">Создай сценарий для 30-секундного UGC-видео TikTok/Reels.
+
+Таймлайн:
+├─ 0-3 сек: HOOK
+├─ 3-15 сек: PROBLEM
+├─ 15-25 сек: SOLUTION
+└─ 25-30 сек: CTA
+
+Для каждого блока:
+- Ракурс камеры
+- Текст на экране
+- Действия актёра
+- Аудио
+
+Формат: таблица с таймкодами</code></pre>
+                                </div>
+                                <div class="prompt-card__bottom">
+                                    <button class="prompt-card__copy-btn" type="button" aria-label="Скопировать промпт" data-clipboard>
+                                        <svg class="prompt-card__copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                        </svg>
+                                        <svg class="prompt-card__check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"/>
+                                        </svg>
+                                        <span class="prompt-card__copy-text">Копировать</span>
+                                        <span class="prompt-card__copy-success">Скопировано!</span>
+                                    </button>
+                                </div>
+                            </article>
+
+                            <!-- Card 4: Advertorial -->
+                            <article class="prompts-content__card prompt-card" data-category="preland" data-tags="advertorial,статья,лендинг" role="listitem">
+                                <div class="prompt-card__top">
+                                    <div class="prompt-card__header">
+                                        <h3 class="prompt-card__title">Промпт для advertorial</h3>
+                                        <span class="prompt-card__badge prompt-card__badge--cyan">ADVERTORIAL</span>
+                                    </div>
+                                    <p class="prompt-card__description">
+                                        Генерация длинных продающих статей в формате журналистского расследования
+                                    </p>
+                                </div>
+                                <div class="prompt-card__middle">
+                                    <pre class="prompt-card__code"><code class="prompt-card__text" data-prompt-text="Напиши статью-преленд на 1200-1500 слов в формате advertorial.
+
+Структура:
+1. ШОКИРУЮЩИЙ ФАКТ (150 слов)
+2. ИСТОРИЯ ГЕРОЯ (300 слов)
+3. ОПИСАНИЕ ПРОБЛЕМЫ (200 слов)
+4. НЕОЖИДАННОЕ ОТКРЫТИЕ (250 слов)
+5. РЕШЕНИЕ (300 слов)
+6. ДОКАЗАТЕЛЬСТВА (200 слов)
+7. CTA (100 слов)
+
+Стиль: журналистское расследование.
+Избегай прямых медицинских утверждений.">Напиши статью-преленд на 1200-1500 слов (advertorial).
+
+Структура:
+1. ШОКИРУЮЩИЙ ФАКТ
+2. ИСТОРИЯ ГЕРОЯ
+3. ПРОБЛЕМА
+4. ОТКРЫТИЕ
+5. РЕШЕНИЕ
+6. ДОКАЗАТЕЛЬСТВА
+7. CTA
+
+Стиль: журналистское расследование</code></pre>
+                                </div>
+                                <div class="prompt-card__bottom">
+                                    <button class="prompt-card__copy-btn" type="button" aria-label="Скопировать промпт" data-clipboard>
+                                        <svg class="prompt-card__copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                        </svg>
+                                        <svg class="prompt-card__check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"/>
+                                        </svg>
+                                        <span class="prompt-card__copy-text">Копировать</span>
+                                        <span class="prompt-card__copy-success">Скопировано!</span>
+                                    </button>
+                                </div>
+                            </article>
+
+                            <!-- Card 5: Avatar -->
+                            <article class="prompts-content__card prompt-card" data-category="audience" data-tags="аватар,сегментация,цА" role="listitem">
+                                <div class="prompt-card__top">
+                                    <div class="prompt-card__header">
+                                        <h3 class="prompt-card__title">Промпт для аватара клиента</h3>
+                                        <span class="prompt-card__badge prompt-card__badge--cyan">RESEARCH</span>
+                                    </div>
+                                    <p class="prompt-card__description">
+                                        Создание детального профиля идеального клиента для нутра-оффера
+                                    </p>
+                                </div>
+                                <div class="prompt-card__middle">
+                                    <pre class="prompt-card__code"><code class="prompt-card__text" data-prompt-text="Создай детальный аватар клиента для нутра-оффера на рынке Мексики.
+
+Включи:
+1. ДЕМОГРАФИЯ (возраст, пол, доход, локация)
+2. ПСИХОГРАФИЯ (страхи, желания, ценности)
+3. ПОВЕДЕНЧЕСКИЕ ПАТТЕРНЫ
+4. ТРИГГЕРЫ ПОКУПКИ
+5. ВОЗРАЖЕНИЯ
+6. КАНАЛЫ КОММУНИКАЦИИ
+
+Формат: структурированный профиль с цитатами.">Создай аватар клиента для нутра-оффера (Мексика).
+
+Включи:
+1. ДЕМОГРАФИЯ
+2. ПСИХОГРАФИЯ
+3. ПАТТЕРНЫ
+4. ТРИГГЕРЫ
+5. ВОЗРАЖЕНИЯ
+6. КАНАЛЫ
+
+Формат: профиль с цитатами</code></pre>
+                                </div>
+                                <div class="prompt-card__bottom">
+                                    <button class="prompt-card__copy-btn" type="button" aria-label="Скопировать промпт" data-clipboard>
+                                        <svg class="prompt-card__copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                        </svg>
+                                        <svg class="prompt-card__check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"/>
+                                        </svg>
+                                        <span class="prompt-card__copy-text">Копировать</span>
+                                        <span class="prompt-card__copy-success">Скопировано!</span>
+                                    </button>
+                                </div>
+                            </article>
+
+                            <!-- Card 6: Keitaro -->
+                            <article class="prompts-content__card prompt-card" data-category="technical" data-tags="keitaro,трекинг,настройка" role="listitem">
+                                <div class="prompt-card__top">
+                                    <div class="prompt-card__header">
+                                        <h3 class="prompt-card__title">Промпт для Keitaro</h3>
+                                        <span class="prompt-card__badge prompt-card__badge--cyan">TRACKING</span>
+                                    </div>
+                                    <p class="prompt-card__description">
+                                        Пошаговая инструкция по настройке трекера для CPA-кампаний
+                                    </p>
+                                </div>
+                                <div class="prompt-card__middle">
+                                    <pre class="prompt-card__code"><code class="prompt-card__text" data-prompt-text="Создай пошаговую инструкцию по настройке Keitaro Tracker.
+
+Включи:
+1. ПЕРВИЧНАЯ НАСТРОЙКА (VPS, SSL)
+2. КАМПАНИЯ (тип, потоки)
+3. ОФФЕРЫ (postback, макросы)
+4. ЛЕНДИНГИ (A/B тесты)
+5. ФИЛЬТРЫ (боты, гео)
+6. ЦЕЛИ (конверсии)
+7. ОТЧЁТЫ (дашборды)
+
+Добавь troubleshooting.">Настройка Keitaro Tracker (пошагово).
+
+1. ПЕРВИЧНАЯ НАСТРОЙКА
+2. КАМПАНИЯ
+3. ОФФЕРЫ
+4. ЛЕНДИНГИ
+5. ФИЛЬТРЫ
+6. ЦЕЛИ
+7. ОТЧЁТЫ
+
++ troubleshooting</code></pre>
+                                </div>
+                                <div class="prompt-card__bottom">
+                                    <button class="prompt-card__copy-btn" type="button" aria-label="Скопировать промпт" data-clipboard>
+                                        <svg class="prompt-card__copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                        </svg>
+                                        <svg class="prompt-card__check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <polyline points="20 6 9 17 4 12"/>
+                                        </svg>
+                                        <span class="prompt-card__copy-text">Копировать</span>
+                                        <span class="prompt-card__copy-success">Скопировано!</span>
+                                    </button>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Empty State -->
+                        <div class="prompts-content__empty" id="empty-state" hidden>
+                            <div class="prompts-content__empty-icon">🔍</div>
+                            <h3 class="prompts-content__empty-title">Ничего не найдено</h3>
+                            <p class="prompts-content__empty-text">Попробуйте выбрать другую категорию или изменить запрос</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <div class="footer__content">
+                <p class="footer__text">© 2026 Mehico Farma • CPA Analytics Dashboard</p>
+                <p class="footer__text footer__text--muted">LATAM Nutra Arbitrage • Modern Web Architecture</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Modules -->
+    <script src="js/storage.js"></script>
+    <script src="js/tilt.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/clipboard.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/prompt-library.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

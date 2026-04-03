@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Визуализация воронки трафика для CPA Nutra COD проекта">
+    <meta name="theme-color" content="#0f172a">
+    <title>Воронки | Mehico Farma</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="funnels.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Перейти к основному контенту</a>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="header__container">
+            <a href="index.html" class="header__brand">
+                <div class="header__logo">
+                    <svg viewBox="0 0 40 40" fill="none">
+                        <rect width="40" height="40" rx="12" fill="url(#logo-gradient)"/>
+                        <path d="M20 8L28 20L20 32L12 20L20 8Z" fill="white" fill-opacity="0.9"/>
+                        <defs>
+                            <linearGradient id="logo-gradient" x1="0" y1="0" x2="40" y2="40">
+                                <stop stop-color="#06b6d4"/>
+                                <stop offset="1" stop-color="#a855f7"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="header__title">Mehico Farma</span>
+            </a>
+
+            <nav class="header__nav" role="navigation">
+                <ul class="header__nav-list">
+                    <li class="header__nav-item">
+                        <a href="index.html" class="header__nav-link">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                            <span>Обзор</span>
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="unit-economics.html" class="header__nav-link">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                            <span>Юнит-экономика</span>
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="funnels.html" class="header__nav-link header__nav-link--active">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                            </svg>
+                            <span>Воронки</span>
+                        </a>
+                    </li>
+                    <li class="header__nav-item">
+                        <a href="prompts.html" class="header__nav-link">
+                            <svg class="header__nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                            <span>Промпты</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header__status">
+                <span class="header__status-dot"></span>
+                <span class="header__status-text">Online</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main" role="main">
+        <section class="funnels-page" aria-labelledby="funnels-title">
+            <div class="funnels-page__container">
+
+                <!-- Page Header -->
+                <header class="funnels-page__header">
+                    <div>
+                        <h1 id="funnels-title" class="funnels-page__title">
+                            <span>🔄</span>
+                            Воронки трафика
+                        </h1>
+                        <p class="funnels-page__subtitle">
+                            Визуализация конверсии для CPA Nutra COD проекта
+                        </p>
+                    </div>
+                </header>
+
+                <!-- Parameters Panel -->
+                <section class="funnel-params" aria-label="Параметры воронки">
+                    <h2 class="funnel-params__title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                        </svg>
+                        Параметры воронки
+                    </h2>
+
+                    <div class="funnel-params__grid">
+                        <!-- CTR Teaser -->
+                        <div class="funnel-param-card">
+                            <label class="funnel-param-card__label" for="ctr-teaser">
+                                <span class="funnel-param-card__text">CTR тизера</span>
+                                <button type="button" class="funnel-param-card__info" data-tooltip="Норма: 0.5-2%. Определяет кликабельность креатива.">ⓘ</button>
+                            </label>
+                            <div class="funnel-param-card__row">
+                                <input type="range" id="ctr-teaser" class="funnel-param-card__slider" 
+                                       min="0.1" max="5" step="0.1" value="1.2">
+                                <div class="funnel-param-card__value">
+                                    <span id="ctr-teaser-value">1.2</span>%
+                                </div>
+                            </div>
+                            <div class="funnel-param-card__hint">0.1 — 5.0%</div>
+                        </div>
+
+                        <!-- Preland CTR -->
+                        <div class="funnel-param-card">
+                            <label class="funnel-param-card__label" for="preland-ctr">
+                                <span class="funnel-param-card__text">Пробив преленда</span>
+                                <button type="button" class="funnel-param-card__info" data-tooltip="Норма: 15-30%. Показывает, как статья прогревает пользователя.">ⓘ</button>
+                            </label>
+                            <div class="funnel-param-card__row">
+                                <input type="range" id="preland-ctr" class="funnel-param-card__slider" 
+                                       min="5" max="50" step="1" value="25">
+                                <div class="funnel-param-card__value">
+                                    <span id="preland-ctr-value">25</span>%
+                                </div>
+                            </div>
+                            <div class="funnel-param-card__hint">5 — 50%</div>
+                        </div>
+
+                        <!-- Landing CR -->
+                        <div class="funnel-param-card">
+                            <label class="funnel-param-card__label" for="landing-cr">
+                                <span class="funnel-param-card__text">Конверсия лендинга</span>
+                                <button type="button" class="funnel-param-card__info" data-tooltip="Норма: 1-3%. Показывает эффективность продажи на сайте.">ⓘ</button>
+                            </label>
+                            <div class="funnel-param-card__row">
+                                <input type="range" id="landing-cr" class="funnel-param-card__slider" 
+                                       min="0.5" max="10" step="0.1" value="2.5">
+                                <div class="funnel-param-card__value">
+                                    <span id="landing-cr-value">2.5</span>%
+                                </div>
+                            </div>
+                            <div class="funnel-param-card__hint">0.5 — 10%</div>
+                        </div>
+
+                        <!-- Approval Rate -->
+                        <div class="funnel-param-card">
+                            <label class="funnel-param-card__label" for="approval-rate">
+                                <span class="funnel-param-card__text">Аппрув КЦ</span>
+                                <button type="button" class="funnel-param-card__info" data-tooltip="Норма: 25-40%. Процент выкупленных заказов после прозвона.">ⓘ</button>
+                            </label>
+                            <div class="funnel-param-card__row">
+                                <input type="range" id="approval-rate" class="funnel-param-card__slider" 
+                                       min="10" max="60" step="1" value="35">
+                                <div class="funnel-param-card__value">
+                                    <span id="approval-rate-value">35</span>%
+                                </div>
+                            </div>
+                            <div class="funnel-param-card__hint">10 — 60%</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pipeline Conversion -->
+                <section class="funnel-pipeline-section" aria-label="Pipeline конверсии">
+                    <h2 class="funnel-pipeline-section__title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                        </svg>
+                        Pipeline конверсии
+                    </h2>
+
+                    <div class="funnel-pipeline">
+                        <div class="funnel-pipeline__nodes">
+                            <!-- Node 1: Impressions -->
+                            <div class="funnel-node" data-stage="impressions">
+                                <div class="funnel-node__header">
+                                    <div class="funnel-node__icon">👁️</div>
+                                    <span class="funnel-node__title">Показы</span>
+                                </div>
+                                <div class="funnel-node__body">
+                                    <div class="funnel-node__value" id="impressions-value">100 000</div>
+                                    <div class="funnel-node__label">пользователей</div>
+                                    <div class="funnel-node__metrics">
+                                        <div class="funnel-node__metric">
+                                            <span class="funnel-node__metric-label">Стоимость:</span>
+                                            <span class="funnel-node__metric-value" id="impressions-cost">$0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="funnel-node__footer">
+                                    <span class="funnel-node__status">Старт воронки</span>
+                                </div>
+                            </div>
+
+                            <!-- Node 2: Clicks -->
+                            <div class="funnel-node" data-stage="clicks">
+                                <div class="funnel-node__header">
+                                    <div class="funnel-node__icon">🖱️</div>
+                                    <span class="funnel-node__title">Клики</span>
+                                </div>
+                                <div class="funnel-node__body">
+                                    <div class="funnel-node__value" id="clicks-value">1 200</div>
+                                    <div class="funnel-node__label">кликнувших</div>
+                                    <div class="funnel-node__metrics">
+                                        <div class="funnel-node__metric">
+                                            <span class="funnel-node__metric-label">CPC:</span>
+                                            <span class="funnel-node__metric-value" id="clicks-cpc">$0.05</span>
+                                        </div>
+                                        <div class="funnel-node__metric">
+                                            <span class="funnel-node__metric-label">Затраты:</span>
+                                            <span class="funnel-node__metric-value" id="clicks-cost">$60</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="funnel-node__footer">
+                                    <span class="funnel-node__dropoff" id="clicks-dropoff">-98.8%</span>
+                                    <span class="funnel-node__benchmark" id="clicks-benchmark">
+                                        <span>0.5-2%</span>
+                                        <span class="funnel-node__check">✓</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Node 3: Preland -->
+                            <div class="funnel-node" data-stage="preland">
+                                <div class="funnel-node__header">
+                                    <div class="funnel-node__icon">📄</div>
+                                    <span class="funnel-node__title">Преленд</span>
+                                </div>
+                                <div class="funnel-node__body">
+                                    <div class="funnel-node__value" id="preland-value">300</div>
+                                    <div class="funnel-node__label">перешедших</div>
+                                    <div class="funnel-node__metrics">
+                                        <div class="funnel-node__metric">
+                                            <span class="funnel-node__metric-label">CPL:</span>
+                                            <span class="funnel-node__metric-value" id="preland-cpl">$0.20</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="funnel-node__footer">
+                                    <span class="funnel-node__dropoff" id="preland-dropoff">-75.0%</span>
+                                    <span class="funnel-node__benchmark" id="preland-benchmark">
+                                        <span>15-35%</span>
+                                        <span class="funnel-node__check">✓</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Node 4: Leads -->
+                            <div class="funnel-node" data-stage="leads">
+                                <div class="funnel-node__header">
+                                    <div class="funnel-node__icon">📝</div>
+                                    <span class="funnel-node__title">Заявки</span>
+                                </div>
+                                <div class="funnel-node__body">
+                                    <div class="funnel-node__value" id="leads-value">68</div>
+                                    <div class="funnel-node__label">лидов</div>
+                                    <div class="funnel-node__metrics">
+                                        <div class="funnel-node__metric">
+                                            <span class="funnel-node__metric-label">CPL:</span>
+                                            <span class="funnel-node__metric-value" id="leads-cpl">$0.88</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="funnel-node__footer">
+                                    <span class="funnel-node__dropoff" id="leads-dropoff">-77.3%</span>
+                                    <span class="funnel-node__benchmark" id="leads-benchmark">
+                                        <span>1-4%</span>
+                                        <span class="funnel-node__check">✓</span>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Node 5: Approved -->
+                            <div class="funnel-node funnel-node--final" data-stage="approved">
+                                <div class="funnel-node__header">
+                                    <div class="funnel-node__icon">✅</div>
+                                    <span class="funnel-node__title">Аппрув</span>
+                                </div>
+                                <div class="funnel-node__body">
+                                    <div class="funnel-node__value" id="approved-value">25</div>
+                                    <div class="funnel-node__label">подтверждено</div>
+                                    <div class="funnel-node__metrics">
+                                        <div class="funnel-node__metric">
+                                            <span class="funnel-node__metric-label">CPA:</span>
+                                            <span class="funnel-node__metric-value" id="approved-cpa">$2.40</span>
+                                        </div>
+                                        <div class="funnel-node__metric">
+                                            <span class="funnel-node__metric-label">Выручка:</span>
+                                            <span class="funnel-node__metric-value" id="approved-revenue">$375</span>
+                                        </div>
+                                        <div class="funnel-node__metric">
+                                            <span class="funnel-node__metric-label">Прибыль:</span>
+                                            <span class="funnel-node__metric-value" id="approved-profit">$315</span>
+                                        </div>
+                                        <div class="funnel-node__metric">
+                                            <span class="funnel-node__metric-label">ROI:</span>
+                                            <span class="funnel-node__metric-value" id="approved-roi">525%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="funnel-node__footer">
+                                    <span class="funnel-node__dropoff" id="approved-dropoff">-63.2%</span>
+                                    <span class="funnel-node__benchmark" id="approved-benchmark">
+                                        <span>25-40%</span>
+                                        <span class="funnel-node__check">✓</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Summary Section -->
+                <section class="funnel-summary" aria-label="Сводка воронки">
+                    <h2 class="funnel-summary__title">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                        </svg>
+                        Сводка воронки
+                    </h2>
+
+                    <div class="funnel-summary__grid">
+                        <!-- Overall CR -->
+                        <div class="funnel-summary-card">
+                            <div class="funnel-summary-card__icon">📊</div>
+                            <div class="funnel-summary-card__content">
+                                <div class="funnel-summary-card__label">Общий CR воронки</div>
+                                <div class="funnel-summary-card__value" id="overall-cr">0.025%</div>
+                            </div>
+                        </div>
+
+                        <!-- Average Dropoff -->
+                        <div class="funnel-summary-card">
+                            <div class="funnel-summary-card__icon">📉</div>
+                            <div class="funnel-summary-card__content">
+                                <div class="funnel-summary-card__label">Средний отток</div>
+                                <div class="funnel-summary-card__value" id="avg-dropoff">78.6%</div>
+                            </div>
+                        </div>
+
+                        <!-- Bottleneck -->
+                        <div class="funnel-summary-card funnel-summary-card--highlight">
+                            <div class="funnel-summary-card__icon">⚠️</div>
+                            <div class="funnel-summary-card__content">
+                                <div class="funnel-summary-card__label">Узкое место</div>
+                                <div class="funnel-summary-card__value" id="bottleneck-stage">Преленд</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer__container">
+            <div class="footer__content">
+                <p class="footer__text">© 2026 Mehico Farma • CPA Analytics Dashboard</p>
+                <p class="footer__text footer__text--muted">LATAM Nutra Arbitrage • Modern Web Architecture</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Modules -->
+    <script src="js/storage.js"></script>
+    <script src="js/tilt.js"></script>
+    <script src="js/counter.js"></script>
+    <script src="js/clipboard.js"></script>
+    <script src="js/navigation.js"></script>
+    <script type="module">
+        import FunnelVisualization from './js/funnels.js';
+        window.FunnelVisualization = FunnelVisualization;
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>
