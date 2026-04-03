@@ -122,7 +122,7 @@
 
                 <!-- KPI Cards -->
                 <div class="hero__metrics">
-                    <article class="hero__metric metric" data-tilt>
+                    <article class="hero__metric metric" data-tilt data-metric="budget">
                         <div class="metric__icon metric__icon--budget">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <line x1="12" y1="1" x2="12" y2="23"/>
@@ -130,16 +130,22 @@
                             </svg>
                         </div>
                         <div class="metric__content">
-                            <span class="metric__label">Начальный бюджет</span>
+                            <span class="metric__label">Бюджет</span>
                             <div class="metric__value">
                                 <span class="metric__currency">$</span>
                                 <span class="metric__number" data-counter data-target="500">0</span>
                             </div>
-                            <span class="metric__status metric__status--active">● Доступно</span>
+                            <div class="metric__budget-bar">
+                                <div class="metric__budget-fill" style="--budget-used: 35%"></div>
+                            </div>
+                            <div class="metric__budget-info">
+                                <span class="metric__budget-spent">Потрачено: $175</span>
+                                <span class="metric__budget-remain">Осталось: $325</span>
+                            </div>
                         </div>
                     </article>
 
-                    <article class="hero__metric metric" data-tilt>
+                    <article class="hero__metric metric" data-tilt data-metric="roi">
                         <div class="metric__icon metric__icon--roi">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
@@ -152,11 +158,17 @@
                                 <span class="metric__number" data-counter data-target="300">0</span>
                                 <span class="metric__percent">%</span>
                             </div>
+                            <div class="metric__sparkline">
+                                <svg class="sparkline-svg" viewBox="0 0 100 30" preserveAspectRatio="none">
+                                    <polyline class="sparkline-line" points="0,25 14,20 28,22 42,15 56,18 70,10 84,12 100,5" fill="none" stroke="currentColor" stroke-width="2"/>
+                                    <polyline class="sparkline-area" points="0,30 0,25 14,20 28,22 42,15 56,18 70,10 84,12 100,5 100,30" fill="currentColor" opacity="0.1"/>
+                                </svg>
+                            </div>
                             <span class="metric__status metric__status--warning">● Агрессивно</span>
                         </div>
                     </article>
 
-                    <article class="hero__metric metric" data-tilt>
+                    <article class="hero__metric metric" data-tilt data-metric="phase">
                         <div class="metric__icon metric__icon--phase">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <circle cx="12" cy="12" r="10"/>
@@ -181,7 +193,131 @@
                     <span class="hero__tag">🌎 Latin America (MX)</span>
                     <span class="hero__tag">💊 Health & Beauty</span>
                     <span class="hero__tag">📦 COD Model</span>
-                    <span class="hero__tag">🕐 <time id="last-updated">--:--</time></span>
+                    <span class="hero__tag hero__tag--time">
+                        <svg class="hero__tag-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                        <time id="mexico-time">--:--</time>
+                        <span class="hero__tag--tz">CST</span>
+                    </span>
+                    <button class="hero__tag hero__tag--theme-toggle" id="theme-toggle" aria-label="Переключить тему">
+                        <svg class="hero__tag-icon theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"/>
+                            <line x1="12" y1="1" x2="12" y2="3"/>
+                            <line x1="12" y1="21" x2="12" y2="23"/>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                            <line x1="1" y1="12" x2="3" y2="12"/>
+                            <line x1="21" y1="12" x2="23" y2="12"/>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                        </svg>
+                        <svg class="hero__tag-icon theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="quick-actions" aria-labelledby="actions-title">
+            <div class="quick-actions__container">
+                <h2 id="actions-title" class="quick-actions__title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                    Быстрые действия
+                </h2>
+                <div class="quick-actions__grid">
+                    <button class="quick-action-btn" data-action="add-expense">
+                        <span class="quick-action-btn__icon">💰</span>
+                        <span class="quick-action-btn__label">Добавить расход</span>
+                    </button>
+                    <button class="quick-action-btn" data-action="new-campaign">
+                        <span class="quick-action-btn__icon">🚀</span>
+                        <span class="quick-action-btn__label">Новая кампания</span>
+                    </button>
+                    <button class="quick-action-btn" data-action="export-data">
+                        <span class="quick-action-btn__icon">📊</span>
+                        <span class="quick-action-btn__label">Экспорт данных</span>
+                    </button>
+                    <button class="quick-action-btn" data-action="add-creative">
+                        <span class="quick-action-btn__icon">🎨</span>
+                        <span class="quick-action-btn__label">Добавить креатив</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notifications -->
+        <section class="notifications" aria-labelledby="notifications-title">
+            <div class="notifications__container">
+                <h2 id="notifications-title" class="notifications__title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
+                    Последние события
+                </h2>
+                <div class="notifications__list" id="notifications-list">
+                    <div class="notification-item notification-item--success">
+                        <span class="notification-item__dot"></span>
+                        <div class="notification-item__content">
+                            <span class="notification-item__text">Кампания <strong>FB_MX_01</strong> достигла ROI <strong>250%</strong></span>
+                            <span class="notification-item__time">2 часа назад</span>
+                        </div>
+                    </div>
+                    <div class="notification-item notification-item--warning">
+                        <span class="notification-item__dot"></span>
+                        <div class="notification-item__content">
+                            <span class="notification-item__text">Бюджет использован на <strong>35%</strong></span>
+                            <span class="notification-item__time">5 часов назад</span>
+                        </div>
+                    </div>
+                    <div class="notification-item notification-item--info">
+                        <span class="notification-item__dot"></span>
+                        <div class="notification-item__content">
+                            <span class="notification-item__text">Новый креатив <strong>banner_v2</strong> загружен в Keitaro</span>
+                            <span class="notification-item__time">Вчера</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weekly Goals -->
+        <section class="weekly-goals" aria-labelledby="goals-title">
+            <div class="weekly-goals__container">
+                <h2 id="goals-title" class="weekly-goals__title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 11l3 3L22 4"/>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                    </svg>
+                    Цели на неделю
+                </h2>
+                <div class="weekly-goals__list" id="weekly-goals-list">
+                    <label class="goal-item">
+                        <input type="checkbox" class="goal-item__checkbox" data-goal="1">
+                        <span class="goal-item__text">Запустить 3 креатива</span>
+                    </label>
+                    <label class="goal-item">
+                        <input type="checkbox" class="goal-item__checkbox" data-goal="2">
+                        <span class="goal-item__text">Протестировать 2 оффера</span>
+                    </label>
+                    <label class="goal-item">
+                        <input type="checkbox" class="goal-item__checkbox" data-goal="3">
+                        <span class="goal-item__text">Достичь ROI 200%</span>
+                    </label>
+                    <label class="goal-item">
+                        <input type="checkbox" class="goal-item__checkbox" data-goal="4">
+                        <span class="goal-item__text">Оптимизировать CTR до 2.5%</span>
+                    </label>
+                    <label class="goal-item">
+                        <input type="checkbox" class="goal-item__checkbox" data-goal="5">
+                        <span class="goal-item__text">Настроить ретаргетинг</span>
+                    </label>
                 </div>
             </div>
         </section>
@@ -307,6 +443,69 @@
     </main>
 
     <!-- ============================================
+         MODAL: Metric Detail
+         ============================================ -->
+    <div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal" id="metric-modal">
+            <div class="modal__header">
+                <h3 class="modal__title" id="modal-title">Детализация</h3>
+                <button class="modal__close" id="modal-close" aria-label="Закрыть">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal__body" id="modal-body">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         COMMAND PALETTE: Cmd+K / Ctrl+K
+         ============================================ -->
+    <div class="command-palette-overlay" id="command-palette-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="command-palette" id="command-palette">
+            <div class="command-palette__input-wrapper">
+                <svg class="command-palette__search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                </svg>
+                <input type="text" class="command-palette__input" id="command-palette-input" placeholder="Поиск по дашборду..." autocomplete="off">
+                <kbd class="command-palette__kbd">ESC</kbd>
+            </div>
+            <div class="command-palette__results" id="command-palette-results">
+                <a href="index.html" class="command-palette__item" data-cmd="overview">
+                    <span class="command-palette__item-icon">📊</span>
+                    <span class="command-palette__item-label">Обзор</span>
+                    <span class="command-palette__item-shortcut">Главная</span>
+                </a>
+                <a href="unit-economics.html" class="command-palette__item" data-cmd="unit-economics">
+                    <span class="command-palette__item-icon">💲</span>
+                    <span class="command-palette__item-label">Юнит-экономика</span>
+                    <span class="command-palette__item-shortcut">Расчёты</span>
+                </a>
+                <a href="funnels.html" class="command-palette__item" data-cmd="funnels">
+                    <span class="command-palette__item-icon">🔻</span>
+                    <span class="command-palette__item-label">Воронки</span>
+                    <span class="command-palette__item-shortcut">Формулы</span>
+                </a>
+                <a href="prompts.html" class="command-palette__item" data-cmd="prompts">
+                    <span class="command-palette__item-icon">💬</span>
+                    <span class="command-palette__item-label">Промпты</span>
+                    <span class="command-palette__item-shortcut">Библиотека</span>
+                </a>
+                <button class="command-palette__item" data-cmd="theme">
+                    <span class="command-palette__item-icon">🎨</span>
+                    <span class="command-palette__item-label">Переключить тему</span>
+                    <span class="command-palette__item-shortcut">Тёмная/Светлая</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
          FOOTER
          ============================================ -->
     <footer class="footer" role="contentinfo">
@@ -328,6 +527,7 @@
     <script src="js/counter.js"></script>
     <script src="js/clipboard.js"></script>
     <script src="js/navigation.js"></script>
+    <script src="js/dashboard.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

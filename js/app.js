@@ -10,13 +10,14 @@ class App {
             counter: null,
             clipboard: null,
             navigation: null,
+            dashboard: null,
             unitEconomics: null,
             funnel: null,
             prompts: null
         };
-        this.state = { 
-            initialized: false, 
-            page: this.getCurrentPage() 
+        this.state = {
+            initialized: false,
+            page: this.getCurrentPage()
         };
     }
 
@@ -33,6 +34,7 @@ class App {
             this.modules.counter = new Counter();
             this.modules.clipboard = new Clipboard();
             this.modules.navigation = new Navigation();
+            this.modules.dashboard = new Dashboard();
 
             // Инициализация страниц-specific модулей
             if (this.state.page === 'unit-economics.html') {
@@ -51,7 +53,8 @@ class App {
                 this.modules.tilt.init(),
                 this.modules.counter.init(),
                 this.modules.clipboard.init(),
-                this.modules.navigation.init()
+                this.modules.navigation.init(),
+                this.modules.dashboard.init()
             ]);
 
             this.updateTimestamp();
@@ -67,9 +70,9 @@ class App {
     updateTimestamp() {
         const el = document.getElementById('last-updated');
         if (!el) return;
-        el.textContent = new Date().toLocaleTimeString('ru-RU', { 
-            hour: '2-digit', 
-            minute: '2-digit' 
+        el.textContent = new Date().toLocaleTimeString('ru-RU', {
+            hour: '2-digit',
+            minute: '2-digit'
         });
     }
 }
@@ -78,7 +81,7 @@ class App {
 document.addEventListener('DOMContentLoaded', () => {
     const app = new App();
     app.init();
-    
+
     // Debug mode
     if (['localhost', '127.0.0.1'].includes(window.location.hostname)) {
         window.app = app;
