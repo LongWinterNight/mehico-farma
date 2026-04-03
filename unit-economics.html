@@ -77,6 +77,13 @@
                 <span class="header__status-dot"></span>
                 <span class="header__status-text">Online</span>
             </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="header__menu-toggle" aria-label="Меню" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
@@ -457,6 +464,40 @@
             </div>
         </section>
     </main>
+
+    <!-- ============================================
+         BOTTOM NAVIGATION: Mobile Only
+         ============================================ -->
+    <nav class="bottom-nav" role="navigation" aria-label="Мобильная навигация">
+        <a href="index.html" class="bottom-nav__item">
+            <svg class="bottom-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            <span class="bottom-nav__label">Обзор</span>
+        </a>
+        <a href="unit-economics.html" class="bottom-nav__item bottom-nav__item--active">
+            <svg class="bottom-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+            <span class="bottom-nav__label">Экономика</span>
+        </a>
+        <a href="funnels.html" class="bottom-nav__item">
+            <svg class="bottom-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+            </svg>
+            <span class="bottom-nav__label">Воронки</span>
+        </a>
+        <a href="prompts.html" class="bottom-nav__item">
+            <svg class="bottom-nav__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            <span class="bottom-nav__label">Промпты</span>
+        </a>
+    </nav>
 
     <!-- Footer -->
     <footer class="footer" role="contentinfo">

@@ -505,8 +505,30 @@
         grid-template-columns: 1fr;
     }
 
+    /* Fix slider/value overlap on mobile */
+    .funnel-param-card__row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-2);
+    }
+
+    .funnel-param-card__slider {
+        width: 100%;
+        flex: none;
+    }
+
+    .funnel-param-card__value {
+        text-align: left;
+        min-width: auto;
+        font-size: 1rem;
+    }
+
+    .funnel-param-card__presets {
+        flex-wrap: wrap;
+    }
+
     .funnel-pipeline__nodes {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
     }
 
     .funnel-summary__grid {
@@ -517,5 +539,79 @@
 @media (max-width: 480px) {
     .funnel-pipeline__nodes {
         grid-template-columns: 1fr;
+    }
+
+    /* Extra small screens - make funnel nodes more compact */
+    .funnel-node__value {
+        font-size: 1rem;
+    }
+
+    .funnel-node__header {
+        padding: var(--space-2) var(--space-2);
+    }
+
+    .funnel-node__body {
+        padding: var(--space-2);
+    }
+
+    .funnel-node__footer {
+        padding: var(--space-2);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-1);
+    }
+
+    .funnel-node__metric {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1px;
+    }
+
+    .funnel-node__metric-label {
+        font-size: 0.563rem;
+    }
+
+    .funnel-node__metric-value {
+        font-size: 0.625rem;
+    }
+}
+
+/* Additional mobile styles for funnel params */
+@media (max-width: 480px) {
+    .funnel-param-card {
+        padding: var(--space-3);
+    }
+
+    .funnel-param-card__label {
+        font-size: 0.813rem;
+        margin-bottom: var(--space-2);
+    }
+
+    .funnel-param-card__slider {
+        height: 8px;
+    }
+
+    .funnel-param-card__slider::-webkit-slider-thumb {
+        width: 22px;
+        height: 22px;
+    }
+
+    .funnel-param-card__slider::-moz-range-thumb {
+        width: 22px;
+        height: 22px;
+    }
+
+    .funnel-param-card__presets {
+        gap: var(--space-1);
+    }
+
+    .funnel-param-card__preset-btn {
+        min-height: 32px;
+        padding: var(--space-1) var(--space-2);
+        font-size: 0.75rem;
+    }
+
+    .funnel-param-card__hint {
+        font-size: 0.688rem;
     }
 }

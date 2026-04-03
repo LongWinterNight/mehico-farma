@@ -938,6 +938,101 @@ button {
 }
 
 /* ==========================================================================
+   10. BOTTOM NAVIGATION - Mobile Only
+   ========================================================================== */
+
+.bottom-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border-primary);
+    z-index: var(--z-fixed);
+    padding: 0;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+}
+
+.bottom-nav__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    flex: 1;
+    height: 100%;
+    padding: var(--space-1) var(--space-2);
+    color: var(--text-muted);
+    font-size: 0.625rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    position: relative;
+    min-width: 0;
+}
+
+.bottom-nav__item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--cyan-400);
+    transition: width var(--transition-fast);
+    border-radius: 0 0 var(--radius-full) var(--radius-full);
+}
+
+.bottom-nav__item:hover {
+    color: var(--text-secondary);
+}
+
+.bottom-nav__item--active {
+    color: var(--cyan-400);
+}
+
+.bottom-nav__item--active::before {
+    width: 60%;
+}
+
+.bottom-nav__icon {
+    width: 1.375rem;
+    height: 1.375rem;
+    flex-shrink: 0;
+}
+
+.bottom-nav__label {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    line-height: 1;
+}
+
+/* Show bottom nav only on mobile */
+@media (max-width: 1024px) {
+    .bottom-nav {
+        display: flex;
+    }
+
+    /* Add padding to main content to prevent overlap with bottom nav */
+    .main {
+        padding-bottom: 72px;
+    }
+
+    .footer {
+        padding-bottom: calc(var(--space-10) + 64px);
+    }
+}
+
+/* ==========================================================================
    9. FOOTER
    ========================================================================== */
 
@@ -5233,6 +5328,64 @@ button {
 
     .footer__text {
         font-size: 0.75rem;
+    }
+
+    /* Unit Economics - extra mobile improvements */
+    .input-group__row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-2);
+    }
+
+    .input-group__stepper {
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: var(--space-1);
+    }
+
+    .input-group__stepper-btn {
+        width: 40px !important;
+        height: 32px !important;
+        border-radius: var(--radius-md) !important;
+    }
+
+    .input-group__input {
+        padding-left: var(--space-8) !important;
+    }
+
+    .metric-card__value {
+        font-size: 1.75rem;
+    }
+
+    .metric-card__value--decimal {
+        font-size: 1.25rem;
+    }
+
+    .metric-card__currency {
+        font-size: 1rem;
+    }
+
+    .metric-card__formula {
+        white-space: normal;
+        word-break: break-word;
+    }
+
+    .metrics-panel__alerts {
+        gap: var(--space-2);
+    }
+
+    .ue-alert {
+        padding: var(--space-3);
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .ue-alert__title {
+        font-size: 0.813rem;
+    }
+
+    .ue-alert__text {
+        font-size: 0.688rem;
     }
 }
 
